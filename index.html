@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pitch Perfect Summer Series - Softball Clinics</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        /* Disable right-click context menu */
+        body {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        header {
+            background: linear-gradient(135deg, #FF69B4 0%, #FFD700 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .hero {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .hero h2 {
+            font-size: 2em;
+            color: #FF69B4;
+            margin-bottom: 20px;
+        }
+
+        .hero p {
+            font-size: 1.1em;
+            color: #555;
+            max-width: 700px;
+            margin: 0 auto 20px;
+        }
+
+        .clinics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .clinic-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            cursor: pointer;
+        }
+
+        .clinic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .clinic-card-header {
+            background: linear-gradient(135deg, #FF69B4 0%, #FFD700 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .clinic-card-header h3 {
+            font-size: 1.8em;
+            margin-bottom: 10px;
+        }
+
+        .clinic-card-body {
+            padding: 20px;
+        }
+
+        .clinic-card-body h4 {
+            color: #FF69B4;
+            margin-bottom: 10px;
+        }
+
+        .clinic-card-body p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .clinic-details {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .clinic-details p {
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #FF69B4;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .btn:hover {
+            background: #FFD700;
+            color: #333;
+        }
+
+        .coach-section {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin: 40px 0;
+        }
+
+        .coach-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: center;
+        }
+
+        .coach-text h2 {
+            color: #FF69B4;
+            font-size: 2em;
+            margin-bottom: 20px;
+        }
+
+        .coach-text p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .accomplishments {
+            background-color: #f9f9f9;
+            padding: 20px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .accomplishments h3 {
+            color: #FF69B4;
+            margin-bottom: 15px;
+        }
+
+        .accomplishments p {
+            margin: 10px 0;
+            font-size: 0.95em;
+            color: #555;
+        }
+
+        .coach-image {
+            text-align: center;
+        }
+
+        .coach-image img {
+            width: 100%;
+            max-width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #FF69B4;
+        }
+
+        .copyright {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .coach-content {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h2 {
+                font-size: 1.5em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⚾ Pitch Perfect Summer Series</h1>
+        <p>Elite Softball Pitching Clinics with Coach Christina Gabriele</p>
+    </header>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#coach">Meet Your Coach</a>
+        <a href="#clinics">Our Clinics</a>
+        <a href="terms-of-use.html">Terms of Use</a>
+    </nav>
+
+    <div class="container">
+        <section class="hero" id="home">
+            <h2>Master the Art of Pitching</h2>
+            <p>Join Christina Gabriele this summer for intensive, elite-level pitching clinics designed to develop technique, injury prevention, and the competitive mindset that separates good athletes from great ones.</p>
+        </section>
+
+        <section id="coach" class="coach-section">
+            <div class="coach-content">
+                <div class="coach-text">
+                    <h2>Meet Your Coach: Christina Gabriele</h2>
+                    <p>Christina is an accomplished pitcher with over a decade of coaching experience and a proven track record of developing elite-level talent. Currently serving as Associate Head Coach at Mitchell College, she brings expert knowledge of pitching mechanics, injury prevention, and the competitive strategies that create winning athletes.</p>
+                    
+                    <div class="accomplishments">
+                        <h3>Accomplishments</h3>
+                        <p><strong>Gulliver Prep (2009-2012):</strong> All-time wins leader (44-4 record), 322 strikeouts, 2-time All-State, 2-time All-American, 2-time Class 2A-4A Pitcher of the Year, 2012 ESPN 100 Watchlist</p>
+                        <p><strong>George Mason University (2012-2015):</strong> Pitcher/first baseman, full-scholarship athlete, 2014 season stats: 2.92 ERA, 42 strikeouts, .227 opposing batting average, graduated early Magna Cum Laude</p>
+                        <p><strong>Current:</strong> Associate Head Coach, Mitchell College Softball</p>
+                    </div>
+                </div>
+                <div class="coach-image">
+                    <img src="coach-headshot.jpg" alt="Coach Christina Gabriele" ondragstart="return false;">
+                </div>
+            </div>
+        </section>
+
+        <section id="clinics">
+            <h2 style="text-align: center; color: #FF69B4; font-size: 2em; margin-bottom: 40px;">Our Clinics</h2>
+            <div class="clinics-grid">
+                <div class="clinic-card">
+                    <div class="clinic-card-header">
+                        <h3>🔥 Fastball Fundamentals</h3>
+                    </div>
+                    <div class="clinic-card-body">
+                        <h4>Build a Dominant Fastball</h4>
+                        <p>Master the foundational pitch that every pitcher needs. This clinic focuses on grip, release mechanics, arm angle, and consistency to develop a fastball that intimidates hitters.</p>
+                        <div class="clinic-details">
+                            <p><strong>Skill Level:</strong> All levels (beginner to advanced)</p>
+                            <p><strong>Focus Areas:</strong> Grip, mechanics, velocity, consistency</p>
+                            <p><strong>Duration:</strong> 2 hours</p>
+                            <p><strong>Class Size:</strong> 8-12 athletes</p>
+                        </div>
+                        <p><strong>What You'll Learn:</strong></p>
+                        <ul style="margin-left: 20px; color: #666;">
+                            <li>Proper grip and hand positioning</li>
+                            <li>Arm slot and release mechanics</li>
+                            <li>Building velocity safely</li>
+                            <li>Consistency and control drills</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="clinic-card">
+                    <div class="clinic-card-header">
+                        <h3>🌀 Curveball Mastery</h3>
+                    </div>
+                    <div class="clinic-card-body">
+                        <h4>Add Movement and Deception</h4>
+                        <p>Learn the mechanics of an effective breaking ball. This clinic teaches the curveball grip, arm action, and strategies for using movement to get strikeouts and weak contact.</p>
+                        <div class="clinic-details">
+                            <p><strong>Skill Level:</strong> Intermediate to advanced</p>
+                            <p><strong>Focus Areas:</strong> Grip, spin rate, movement, sequencing</p>
+                            <p><strong>Duration:</strong> 2 hours</p>
+                            <p><strong>Class Size:</strong> 8-12 athletes</p>
+                        </div>
+                        <p><strong>What You'll Learn:</strong></p>
+                        <ul style="margin-left: 20px; color: #666;">
+                            <li>Curveball grip variations</li>
+                            <li>Spin mechanics and wrist position</li>
+                            <li>Movement and depth</li>
+                            <li>When and how to throw effectively</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="clinic-card">
+                    <div class="clinic-card-header">
+                        <h3>⬆️ Riseball Revolution</h3>
+                    </div>
+                    <div class="clinic-card-body">
+                        <h4>Master the Game's Toughest Pitch</h4>
+                        <p>The riseball is one of the most feared pitches in softball. This advanced clinic breaks down the mechanics, grip, and arm action needed to throw a rising fastball that hitters can't lay off.</p>
+                        <div class="clinic-details">
+                            <p><strong>Skill Level:</strong> Advanced</p>
+                            <p><strong>Focus Areas:</strong> Grip, backspin, arm angle, placement</p>
+                            <p><strong>Duration:</strong> 2 hours</p>
+                            <p><strong>Class Size:</strong> 6-10 athletes</p>
+                        </div>
+                        <p><strong>What You'll Learn:</strong></p>
+                        <ul style="margin-left: 20px; color: #666;">
+                            <li>Riseball grip and finger position</li>
+                            <li>Creating backspin and rise</li>
+                            <li>Arm angle and release mechanics</li>
+                            <li>Strategic placement and pitch sequencing</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        <p><strong>Ready to Perfect Your Pitch?</strong></p>
+        <p>Contact Coach Christina for clinic dates, times, and registration information.</p>
+        <div class="footer-links">
+            <a href="#">Register Now</a>
+            <a href="#">Contact Us</a>
+            <a href="terms-of-use.html">Terms of Use</a>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Christina Gabriele. All rights reserved.</p>
+            <p>Pitch Perfect Summer Series - Elite Softball Pitching Clinics</p>
+            <p style="font-size: 0.8em; margin-top: 10px;">Images and content are protected intellectual property. Unauthorized reproduction or distribution is prohibited.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Disable right-click context menu
+        document.addEventListener('contextmenu', (e) => {
+            e.preventDefault();
+            return false;
+        });
+
+        // Disable text selection
+        document.addEventListener('selectstart', (e) => {
+            e.preventDefault();
+            return false;
+        });
+
+        // Disable drag and drop
+        document.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+            return false;
+        });
+    </script>
+</body>
+</html>
