@@ -520,17 +520,15 @@
                 });
 
                 // no-cors means we can't read the response, but if it didn't throw, it likely worked
-                messageDiv.innerHTML = '🎉 <strong>Registration submitted!</strong><br>We\'ll be in touch with clinic dates and details soon. Check your email!';
-                messageDiv.className = 'form-message success';
-                this.reset();
+                // Redirect to thank you page
+                window.location.href = 'thank-you.html';
 
             } catch (error) {
                 messageDiv.innerHTML = '❌ <strong>Something went wrong.</strong><br>Please try again or email us directly at <a href="mailto:gabriele_c@mitchell.edu">gabriele_c@mitchell.edu</a>';
                 messageDiv.className = 'form-message error';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Registration Interest';
             }
-
-            submitBtn.disabled = false;
-            submitBtn.textContent = 'Submit Registration Interest';
         });
 
         // "All clinics" checkbox logic
