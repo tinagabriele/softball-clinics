@@ -522,9 +522,9 @@
 
                     <div class="session-card" id="card-curveball">
                         <label>
-                            <input type="checkbox" name="session_curveball" value="Curveball Mastery - June TBD">
+                            <input type="checkbox" name="session_curveball" value="Curveball Craft - June TBD">
                             <div class="session-info">
-                                <div class="session-title">🌀 Curveball Mastery</div>
+                                <div class="session-title">🌀 Curveball Craft</div>
                                 <div class="session-details">
                                     June 2026 (exact date TBD) • 10:00 AM – 12:00 PM<br>
                                     Intermediate to advanced
@@ -536,9 +536,9 @@
 
                     <div class="session-card" id="card-riseball">
                         <label>
-                            <input type="checkbox" name="session_riseball" value="Riseball Revolution - July TBD">
+                            <input type="checkbox" name="session_riseball" value="Riseball Rundown - July TBD">
                             <div class="session-info">
-                                <div class="session-title">⬆️ Riseball Revolution</div>
+                                <div class="session-title">⬆️ Riseball Rundown</div>
                                 <div class="session-details">
                                     July 2026 (exact date TBD) • 10:00 AM – 12:00 PM<br>
                                     Advanced only
@@ -685,8 +685,8 @@
             // Validate at least one session selected
             const sessions = [];
             if (document.querySelector('input[name="session_fastball"]').checked) sessions.push('Fastball Fundamentals - May 16');
-            if (document.querySelector('input[name="session_curveball"]').checked) sessions.push('Curveball Mastery - June TBD');
-            if (document.querySelector('input[name="session_riseball"]').checked) sessions.push('Riseball Revolution - July TBD');
+            if (document.querySelector('input[name="session_curveball"]').checked) sessions.push('Curveball Craft - June TBD');
+            if (document.querySelector('input[name="session_riseball"]').checked) sessions.push('Riseball Rundown - July TBD');
             if (document.querySelector('input[name="session_private"]').checked) sessions.push('Semi-Private Pitching Lesson');
 
             if (sessions.length === 0) {
