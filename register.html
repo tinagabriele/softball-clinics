@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register - Pitch Perfect Summer Series</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background: linear-gradient(135deg, #FF69B4 0%, #FFD700 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .form-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .form-header h2 {
+            font-size: 2em;
+            color: #FF69B4;
+            margin-bottom: 15px;
+        }
+
+        .form-header p {
+            color: #666;
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .registration-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-section {
+            margin-bottom: 30px;
+            padding-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .form-section:last-of-type {
+            border-bottom: none;
+            margin-bottom: 20px;
+            padding-bottom: 0;
+        }
+
+        .form-section h3 {
+            color: #FF69B4;
+            margin-bottom: 15px;
+            font-size: 1.3em;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: bold;
+            color: #444;
+            font-size: 0.95em;
+        }
+
+        .form-group label .required {
+            color: #FF69B4;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 2px solid #e0e0e0;
+            border-radius: 6px;
+            font-size: 1em;
+            font-family: 'Arial', sans-serif;
+            transition: border-color 0.3s;
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            outline: none;
+            border-color: #FF69B4;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            font-weight: normal;
+            cursor: pointer;
+        }
+
+        .checkbox-group input[type="checkbox"] {
+            width: auto;
+            margin-right: 10px;
+            accent-color: #FF69B4;
+            transform: scale(1.2);
+        }
+
+        .btn-submit {
+            display: block;
+            width: 100%;
+            background: linear-gradient(135deg, #FF69B4 0%, #FFD700 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            border: none;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        .btn-submit:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+            transform: none;
+            box-shadow: none;
+        }
+
+        .form-note {
+            text-align: center;
+            margin-top: 20px;
+            color: #888;
+            font-size: 0.9em;
+        }
+
+        .form-note a {
+            color: #FF69B4;
+            text-decoration: none;
+        }
+
+        .form-note a:hover {
+            text-decoration: underline;
+        }
+
+        /* Success/Error Messages */
+        .form-message {
+            display: none;
+            text-align: center;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+            font-size: 1.1em;
+        }
+
+        .form-message.success {
+            display: block;
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-message.error {
+            display: block;
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #FF69B4;
+        }
+
+        .copyright {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .registration-form {
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⚾ Pitch Perfect Summer Series</h1>
+        <p>Register for Elite Softball Pitching Clinics</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#coach">Meet Your Coach</a>
+        <a href="index.html#clinics">Our Clinics</a>
+        <a href="register.html">Register</a>
+        <a href="terms-of-use.html">Terms of Use</a>
+    </nav>
+
+    <div class="container">
+        <div class="form-header">
+            <h2>Register for a Clinic</h2>
+            <p>Fill out the form below to express interest in our upcoming clinics. Dates, times, and pricing are coming soon — we'll reach out with details once they're confirmed!</p>
+        </div>
+
+        <form id="registration-form" class="registration-form">
+            <div class="form-section">
+                <h3>🏃‍♀️ Athlete Information</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>First Name <span class="required">*</span></label>
+                        <input type="text" name="athlete_first_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Last Name <span class="required">*</span></label>
+                        <input type="text" name="athlete_last_name" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Age <span class="required">*</span></label>
+                        <input type="number" name="athlete_age" min="6" max="22" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Grade (Fall 2026) <span class="required">*</span></label>
+                        <select name="athlete_grade" required>
+                            <option value="">Select grade...</option>
+                            <option value="5th">5th Grade</option>
+                            <option value="6th">6th Grade</option>
+                            <option value="7th">7th Grade</option>
+                            <option value="8th">8th Grade</option>
+                            <option value="9th (Freshman)">9th Grade (Freshman)</option>
+                            <option value="10th (Sophomore)">10th Grade (Sophomore)</option>
+                            <option value="11th (Junior)">11th Grade (Junior)</option>
+                            <option value="12th (Senior)">12th Grade (Senior)</option>
+                            <option value="College">College</option>
+                            <option value="Post-Grad">Post-Grad</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Experience Level <span class="required">*</span></label>
+                    <select name="experience_level" required>
+                        <option value="">Select level...</option>
+                        <option value="Beginner">Beginner (0-1 years pitching)</option>
+                        <option value="Intermediate">Intermediate (2-4 years pitching)</option>
+                        <option value="Advanced">Advanced (5+ years pitching)</option>
+                        <option value="Elite/Varsity">Elite / Varsity</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Current Team / Organization (optional)</label>
+                    <input type="text" name="current_team" placeholder="e.g. CT Bombers, Southington HS Varsity">
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>👨‍👩‍👧 Parent / Guardian Information</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Parent/Guardian Name <span class="required">*</span></label>
+                        <input type="text" name="parent_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Relationship to Athlete <span class="required">*</span></label>
+                        <select name="relationship" required>
+                            <option value="">Select...</option>
+                            <option value="Mother">Mother</option>
+                            <option value="Father">Father</option>
+                            <option value="Guardian">Guardian</option>
+                            <option value="Coach">Coach</option>
+                            <option value="Other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Email <span class="required">*</span></label>
+                        <input type="email" name="parent_email" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone Number <span class="required">*</span></label>
+                        <input type="tel" name="parent_phone" placeholder="(555) 555-5555" required>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>⚾ Clinic Interest</h3>
+                <div class="form-group">
+                    <label>Which clinics are you interested in? <span class="required">*</span></label>
+                    <div class="checkbox-group">
+                        <label><input type="checkbox" name="clinic_fastball" value="Fastball Fundamentals"> 🔥 Fastball Fundamentals (All Levels)</label>
+                        <label><input type="checkbox" name="clinic_curveball" value="Curveball Mastery"> 🌀 Curveball Mastery (Intermediate+)</label>
+                        <label><input type="checkbox" name="clinic_riseball" value="Riseball Revolution"> ⬆️ Riseball Revolution (Advanced)</label>
+                        <label><input type="checkbox" name="clinic_all" value="All Clinics"> ⭐ All of the above!</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>📝 Additional Information</h3>
+                <div class="form-group">
+                    <label>How did you hear about us?</label>
+                    <select name="referral_source">
+                        <option value="">Select...</option>
+                        <option value="Social Media">Social Media</option>
+                        <option value="Word of Mouth">Word of Mouth</option>
+                        <option value="Coach Referral">Coach Referral</option>
+                        <option value="Web Search">Web Search</option>
+                        <option value="Returning Athlete">Returning Athlete</option>
+                        <option value="Other">Other</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Questions or anything else we should know?</label>
+                    <textarea name="notes" placeholder="Injuries, scheduling preferences, specific goals, etc."></textarea>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit" id="submit-btn">Submit Registration Interest</button>
+
+            <div id="form-message" class="form-message"></div>
+
+            <p class="form-note">
+                Dates and pricing are TBD. By registering, you'll be the first to know when details are confirmed.<br>
+                Questions? Email <a href="mailto:gabriele_c@mitchell.edu">gabriele_c@mitchell.edu</a>
+            </p>
+        </form>
+    </div>
+
+    <footer>
+        <p><strong>Ready to Perfect Your Pitch?</strong></p>
+        <p>Contact Coach Christina: <a href="mailto:gabriele_c@mitchell.edu" style="color: #FFD700;">gabriele_c@mitchell.edu</a></p>
+        <div class="footer-links">
+            <a href="register.html">Register</a>
+            <a href="mailto:gabriele_c@mitchell.edu">Contact Us</a>
+            <a href="terms-of-use.html">Terms of Use</a>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Christina Gabriele. All rights reserved.</p>
+            <p>Pitch Perfect Summer Series - Elite Softball Pitching Clinics</p>
+        </div>
+    </footer>
+
+    <script>
+        // Google Sheets Apps Script Web App URL
+        // REPLACE THIS with your deployed Apps Script URL
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzN9pqirNwgF4igR-yEG-7LY1L2oN8wLZTHptfbym1fkbHt3XXok1nBWozmkqGumosq/exec';
+
+        document.getElementById('registration-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submit-btn');
+            const messageDiv = document.getElementById('form-message');
+
+            // Disable button and show loading
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            messageDiv.className = 'form-message';
+            messageDiv.style.display = 'none';
+
+            // Gather form data
+            const formData = new FormData(this);
+
+            // Collect clinic selections into one field
+            const clinics = [];
+            if (formData.get('clinic_fastball')) clinics.push('Fastball Fundamentals');
+            if (formData.get('clinic_curveball')) clinics.push('Curveball Mastery');
+            if (formData.get('clinic_riseball')) clinics.push('Riseball Revolution');
+            if (formData.get('clinic_all')) clinics.push('All Clinics');
+
+            // Validate at least one clinic selected
+            if (clinics.length === 0) {
+                messageDiv.textContent = 'Please select at least one clinic you\'re interested in.';
+                messageDiv.className = 'form-message error';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Registration Interest';
+                return;
+            }
+
+            // Build submission object
+            const submission = {
+                timestamp: new Date().toLocaleString(),
+                athlete_first_name: formData.get('athlete_first_name'),
+                athlete_last_name: formData.get('athlete_last_name'),
+                athlete_age: formData.get('athlete_age'),
+                athlete_grade: formData.get('athlete_grade'),
+                experience_level: formData.get('experience_level'),
+                current_team: formData.get('current_team') || '',
+                parent_name: formData.get('parent_name'),
+                relationship: formData.get('relationship'),
+                parent_email: formData.get('parent_email'),
+                parent_phone: formData.get('parent_phone'),
+                clinics_interested: clinics.join(', '),
+                referral_source: formData.get('referral_source') || '',
+                notes: formData.get('notes') || ''
+            };
+
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(submission)
+                });
+
+                // no-cors means we can't read the response, but if it didn't throw, it likely worked
+                messageDiv.innerHTML = '🎉 <strong>Registration submitted!</strong><br>We\'ll be in touch with clinic dates and details soon. Check your email!';
+                messageDiv.className = 'form-message success';
+                this.reset();
+
+            } catch (error) {
+                messageDiv.innerHTML = '❌ <strong>Something went wrong.</strong><br>Please try again or email us directly at <a href="mailto:gabriele_c@mitchell.edu">gabriele_c@mitchell.edu</a>';
+                messageDiv.className = 'form-message error';
+            }
+
+            submitBtn.disabled = false;
+            submitBtn.textContent = 'Submit Registration Interest';
+        });
+
+        // "All clinics" checkbox logic
+        document.querySelector('input[name="clinic_all"]').addEventListener('change', function() {
+            const checkboxes = document.querySelectorAll('input[name^="clinic_"]:not([name="clinic_all"])');
+            checkboxes.forEach(cb => cb.checked = this.checked);
+        });
+    </script>
+</body>
+</html>
