@@ -156,12 +156,12 @@
         .checkbox-group {
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
 
         .checkbox-group label {
             display: flex;
-            align-items: center;
+            align-items: flex-start;
             font-weight: normal;
             cursor: pointer;
         }
@@ -169,8 +169,120 @@
         .checkbox-group input[type="checkbox"] {
             width: auto;
             margin-right: 10px;
+            margin-top: 3px;
             accent-color: #FF69B4;
             transform: scale(1.2);
+        }
+
+        .session-card {
+            background: #f9f9f9;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-bottom: 12px;
+            transition: border-color 0.3s, background-color 0.3s;
+        }
+
+        .session-card:hover {
+            border-color: #FF69B4;
+        }
+
+        .session-card.selected {
+            border-color: #FF69B4;
+            background-color: #fff0f7;
+        }
+
+        .session-card label {
+            display: flex;
+            align-items: flex-start;
+            cursor: pointer;
+            font-weight: normal;
+        }
+
+        .session-card input[type="checkbox"] {
+            width: auto;
+            margin-right: 12px;
+            margin-top: 4px;
+            accent-color: #FF69B4;
+            transform: scale(1.3);
+        }
+
+        .session-info {
+            flex: 1;
+        }
+
+        .session-info .session-title {
+            font-weight: bold;
+            color: #333;
+            font-size: 1.05em;
+            margin-bottom: 4px;
+        }
+
+        .session-info .session-details {
+            color: #666;
+            font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        .session-info .spots-remaining {
+            display: inline-block;
+            margin-top: 6px;
+            padding: 3px 10px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+        }
+
+        .spots-available {
+            background-color: #d4edda;
+            color: #155724;
+        }
+
+        .spots-limited {
+            background-color: #fff3cd;
+            color: #856404;
+        }
+
+        .spots-full {
+            background-color: #f8d7da;
+            color: #721c24;
+        }
+
+        .location-info {
+            background: #f0f8ff;
+            border: 1px solid #b8daff;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-top: 15px;
+        }
+
+        .location-info p {
+            margin: 4px 0;
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .location-info a {
+            color: #FF69B4;
+            text-decoration: none;
+        }
+
+        .location-info a:hover {
+            text-decoration: underline;
+        }
+
+        .payment-info {
+            background: #fff8e1;
+            border: 1px solid #ffe082;
+            border-radius: 8px;
+            padding: 15px 20px;
+            margin-top: 15px;
+        }
+
+        .payment-info p {
+            margin: 4px 0;
+            color: #555;
+            font-size: 0.95em;
         }
 
         .btn-submit {
@@ -217,7 +329,6 @@
             text-decoration: underline;
         }
 
-        /* Success/Error Messages */
         .form-message {
             display: none;
             text-align: center;
@@ -225,13 +336,6 @@
             border-radius: 8px;
             margin-top: 20px;
             font-size: 1.1em;
-        }
-
-        .form-message.success {
-            display: block;
-            background-color: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
         }
 
         .form-message.error {
@@ -312,7 +416,7 @@
     <div class="container">
         <div class="form-header">
             <h2>Register for a Clinic</h2>
-            <p>Fill out the form below to express interest in our upcoming clinics. Dates, times, and pricing are coming soon — we'll reach out with details once they're confirmed!</p>
+            <p>Select the session(s) you'd like to attend. Space is limited to 6 athletes per clinic to ensure personalized coaching.</p>
         </div>
 
         <form id="registration-form" class="registration-form">
@@ -398,15 +502,66 @@
             </div>
 
             <div class="form-section">
-                <h3>⚾ Clinic Interest</h3>
-                <div class="form-group">
-                    <label>Which clinics are you interested in? <span class="required">*</span></label>
-                    <div class="checkbox-group">
-                        <label><input type="checkbox" name="clinic_fastball" value="Fastball Fundamentals"> 🔥 Fastball Fundamentals (All Levels)</label>
-                        <label><input type="checkbox" name="clinic_curveball" value="Curveball Mastery"> 🌀 Curveball Mastery (Intermediate+)</label>
-                        <label><input type="checkbox" name="clinic_riseball" value="Riseball Revolution"> ⬆️ Riseball Revolution (Advanced)</label>
-                        <label><input type="checkbox" name="clinic_all" value="All Clinics"> ⭐ All of the above!</label>
+                <h3>📅 Select Your Session(s) <span class="required">*</span></h3>
+                <p style="color: #666; margin-bottom: 15px; font-size: 0.95em;">Each session is limited to <strong>6 athletes</strong>. If a session is full, you'll be added to the waitlist and notified if a spot opens.</p>
+
+                <div id="sessions-container">
+                    <div class="session-card" id="card-fastball">
+                        <label>
+                            <input type="checkbox" name="session_fastball" value="Fastball Fundamentals - May 16">
+                            <div class="session-info">
+                                <div class="session-title">🔥 Fastball Fundamentals</div>
+                                <div class="session-details">
+                                    Friday, May 16, 2026 • 10:00 AM – 12:00 PM<br>
+                                    All levels welcome
+                                </div>
+                                <span class="spots-remaining spots-available" id="spots-fastball">Loading spots...</span>
+                            </div>
+                        </label>
                     </div>
+
+                    <div class="session-card" id="card-curveball">
+                        <label>
+                            <input type="checkbox" name="session_curveball" value="Curveball Mastery - June TBD">
+                            <div class="session-info">
+                                <div class="session-title">🌀 Curveball Mastery</div>
+                                <div class="session-details">
+                                    June 2026 (exact date TBD) • 10:00 AM – 12:00 PM<br>
+                                    Intermediate to advanced
+                                </div>
+                                <span class="spots-remaining spots-available" id="spots-curveball">Loading spots...</span>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="session-card" id="card-riseball">
+                        <label>
+                            <input type="checkbox" name="session_riseball" value="Riseball Revolution - July TBD">
+                            <div class="session-info">
+                                <div class="session-title">⬆️ Riseball Revolution</div>
+                                <div class="session-details">
+                                    July 2026 (exact date TBD) • 10:00 AM – 12:00 PM<br>
+                                    Advanced only
+                                </div>
+                                <span class="spots-remaining spots-available" id="spots-riseball">Loading spots...</span>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+
+                <div class="location-info">
+                    <p><strong>📍 Location:</strong> Mitchell College Softball Field</p>
+                    <p>437 Pequot Avenue, New London, CT 06320</p>
+                    <p><a href="https://maps.google.com/?q=437+Pequot+Avenue+New+London+CT+06320" target="_blank">View on Google Maps →</a></p>
+                </div>
+            </div>
+
+            <div class="form-section">
+                <h3>💰 Payment Information</h3>
+                <div class="payment-info">
+                    <p><strong>Pricing:</strong> Coming soon — we'll confirm pricing before your session.</p>
+                    <p><strong>Payment method:</strong> Cash or check preferred. Payment is collected at the session.</p>
+                    <p><strong>Checks payable to:</strong> Christina Gabriele</p>
                 </div>
             </div>
 
@@ -430,12 +585,11 @@
                 </div>
             </div>
 
-            <button type="submit" class="btn-submit" id="submit-btn">Submit Registration Interest</button>
+            <button type="submit" class="btn-submit" id="submit-btn">Submit Registration</button>
 
             <div id="form-message" class="form-message"></div>
 
             <p class="form-note">
-                Dates and pricing are TBD. By registering, you'll be the first to know when details are confirmed.<br>
                 Questions? Email <a href="mailto:gabriele_c@mitchell.edu">gabriele_c@mitchell.edu</a>
             </p>
         </form>
@@ -457,14 +611,68 @@
 
     <script>
         // Google Sheets Apps Script Web App URL
-        // REPLACE THIS with your deployed Apps Script URL
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzN9pqirNwgF4igR-yEG-7LY1L2oN8wLZTHptfbym1fkbHt3XXok1nBWozmkqGumosq/exec';
 
+        const MAX_SPOTS = 6;
+
+        // Fetch current registration counts on page load
+        async function loadSpotCounts() {
+            try {
+                const response = await fetch(GOOGLE_SCRIPT_URL + '?action=getSpots');
+                const data = await response.json();
+
+                updateSpotDisplay('fastball', data.fastball || 0);
+                updateSpotDisplay('curveball', data.curveball || 0);
+                updateSpotDisplay('riseball', data.riseball || 0);
+            } catch (error) {
+                // If we can't load counts, show as available
+                document.getElementById('spots-fastball').textContent = 'Spots available';
+                document.getElementById('spots-curveball').textContent = 'Spots available';
+                document.getElementById('spots-riseball').textContent = 'Spots available';
+            }
+        }
+
+        function updateSpotDisplay(session, registered) {
+            const el = document.getElementById('spots-' + session);
+            const remaining = MAX_SPOTS - registered;
+
+            if (remaining > 2) {
+                el.textContent = remaining + ' spots remaining';
+                el.className = 'spots-remaining spots-available';
+            } else if (remaining > 0) {
+                el.textContent = 'Only ' + remaining + ' spot' + (remaining === 1 ? '' : 's') + ' left!';
+                el.className = 'spots-remaining spots-limited';
+            } else {
+                el.textContent = 'Full — join waitlist';
+                el.className = 'spots-remaining spots-full';
+            }
+        }
+
+        // Session card highlight on check
+        document.querySelectorAll('.session-card input[type="checkbox"]').forEach(cb => {
+            cb.addEventListener('change', function() {
+                this.closest('.session-card').classList.toggle('selected', this.checked);
+            });
+        });
+
+        // Form submission
         document.getElementById('registration-form').addEventListener('submit', async function(e) {
             e.preventDefault();
 
             const submitBtn = document.getElementById('submit-btn');
             const messageDiv = document.getElementById('form-message');
+
+            // Validate at least one session selected
+            const sessions = [];
+            if (document.querySelector('input[name="session_fastball"]').checked) sessions.push('Fastball Fundamentals - May 16');
+            if (document.querySelector('input[name="session_curveball"]').checked) sessions.push('Curveball Mastery - June TBD');
+            if (document.querySelector('input[name="session_riseball"]').checked) sessions.push('Riseball Revolution - July TBD');
+
+            if (sessions.length === 0) {
+                messageDiv.textContent = 'Please select at least one session.';
+                messageDiv.className = 'form-message error';
+                return;
+            }
 
             // Disable button and show loading
             submitBtn.disabled = true;
@@ -472,27 +680,11 @@
             messageDiv.className = 'form-message';
             messageDiv.style.display = 'none';
 
-            // Gather form data
             const formData = new FormData(this);
-
-            // Collect clinic selections into one field
-            const clinics = [];
-            if (formData.get('clinic_fastball')) clinics.push('Fastball Fundamentals');
-            if (formData.get('clinic_curveball')) clinics.push('Curveball Mastery');
-            if (formData.get('clinic_riseball')) clinics.push('Riseball Revolution');
-            if (formData.get('clinic_all')) clinics.push('All Clinics');
-
-            // Validate at least one clinic selected
-            if (clinics.length === 0) {
-                messageDiv.textContent = 'Please select at least one clinic you\'re interested in.';
-                messageDiv.className = 'form-message error';
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit Registration Interest';
-                return;
-            }
 
             // Build submission object
             const submission = {
+                action: 'register',
                 timestamp: new Date().toLocaleString(),
                 athlete_first_name: formData.get('athlete_first_name'),
                 athlete_last_name: formData.get('athlete_last_name'),
@@ -504,7 +696,7 @@
                 relationship: formData.get('relationship'),
                 parent_email: formData.get('parent_email'),
                 parent_phone: formData.get('parent_phone'),
-                clinics_interested: clinics.join(', '),
+                sessions_selected: sessions.join(', '),
                 referral_source: formData.get('referral_source') || '',
                 notes: formData.get('notes') || ''
             };
@@ -519,7 +711,6 @@
                     body: JSON.stringify(submission)
                 });
 
-                // no-cors means we can't read the response, but if it didn't throw, it likely worked
                 // Redirect to thank you page
                 window.location.href = 'thank-you.html';
 
@@ -527,15 +718,12 @@
                 messageDiv.innerHTML = '❌ <strong>Something went wrong.</strong><br>Please try again or email us directly at <a href="mailto:gabriele_c@mitchell.edu">gabriele_c@mitchell.edu</a>';
                 messageDiv.className = 'form-message error';
                 submitBtn.disabled = false;
-                submitBtn.textContent = 'Submit Registration Interest';
+                submitBtn.textContent = 'Submit Registration';
             }
         });
 
-        // "All clinics" checkbox logic
-        document.querySelector('input[name="clinic_all"]').addEventListener('change', function() {
-            const checkboxes = document.querySelectorAll('input[name^="clinic_"]:not([name="clinic_all"])');
-            checkboxes.forEach(cb => cb.checked = this.checked);
-        });
+        // Load spot counts on page load
+        loadSpotCounts();
     </script>
 </body>
 </html>
