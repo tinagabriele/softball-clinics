@@ -547,6 +547,26 @@
                             </div>
                         </label>
                     </div>
+
+                    <div style="border-top: 2px solid #eee; margin: 20px 0; padding-top: 20px;">
+                        <p style="color: #666; margin-bottom: 12px; font-size: 0.95em;"><strong>Looking for more personalized instruction?</strong></p>
+                    </div>
+
+                    <div class="session-card" id="card-private">
+                        <label>
+                            <input type="checkbox" name="session_private" value="Semi-Private Pitching Lesson">
+                            <div class="session-info">
+                                <div class="session-title">🎯 Semi-Private Pitching Lesson</div>
+                                <div class="session-details">
+                                    Date & time scheduled directly with Coach Christina<br>
+                                    2 athletes per session — personalized, focused instruction<br>
+                                    All levels welcome
+                                </div>
+                                <span class="spots-remaining spots-available" style="background-color: #e8d4f0; color: #5b2d8e;">By appointment</span>
+                            </div>
+                        </label>
+                    </div>
+                    <p style="color: #888; font-size: 0.85em; margin-top: 8px; padding-left: 5px;">💡 Semi-private lessons are limited to 2 athletes at a time for maximum one-on-one attention. I'll reach out to coordinate scheduling and pair athletes by skill level.</p>
                 </div>
 
                 <div class="location-info">
@@ -667,6 +687,7 @@
             if (document.querySelector('input[name="session_fastball"]').checked) sessions.push('Fastball Fundamentals - May 16');
             if (document.querySelector('input[name="session_curveball"]').checked) sessions.push('Curveball Mastery - June TBD');
             if (document.querySelector('input[name="session_riseball"]').checked) sessions.push('Riseball Revolution - July TBD');
+            if (document.querySelector('input[name="session_private"]').checked) sessions.push('Semi-Private Pitching Lesson');
 
             if (sessions.length === 0) {
                 messageDiv.textContent = 'Please select at least one session.';
