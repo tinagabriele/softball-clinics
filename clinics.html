@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Clinics | Christina Gabriele - CT Softball Pitching Coach</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background: linear-gradient(135deg, #FF69B4 0%, #FFD700 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .page-header h2 {
+            font-size: 2em;
+            color: #FF69B4;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            color: #666;
+            font-size: 1.1em;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .clinics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .clinic-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .clinic-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        }
+
+        .clinic-card-header {
+            background: linear-gradient(135deg, #FF69B4 0%, #FFD700 100%);
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .clinic-card-header h3 {
+            font-size: 1.8em;
+        }
+
+        .clinic-card-body {
+            padding: 20px;
+        }
+
+        .clinic-card-body h4 {
+            color: #FF69B4;
+            margin-bottom: 10px;
+        }
+
+        .clinic-card-body p {
+            color: #666;
+            margin-bottom: 15px;
+            line-height: 1.8;
+        }
+
+        .clinic-details {
+            background-color: #f0f0f0;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 15px 0;
+        }
+
+        .clinic-details p {
+            margin: 8px 0;
+            font-size: 0.95em;
+        }
+
+        .clinic-card-body ul {
+            margin-left: 20px;
+            color: #666;
+        }
+
+        .clinic-card-body ul li {
+            margin-bottom: 4px;
+        }
+
+        .cta-section {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .cta-btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF69B4 0%, #FFD700 100%);
+            color: white;
+            padding: 16px 45px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.3);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255, 105, 180, 0.5);
+        }
+
+        .location-info {
+            max-width: 700px;
+            margin: 40px auto 0;
+            background: #f0f8ff;
+            border: 1px solid #b8daff;
+            border-radius: 8px;
+            padding: 20px 25px;
+            text-align: center;
+        }
+
+        .location-info p {
+            margin: 4px 0;
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .location-info a {
+            color: #FF69B4;
+            text-decoration: none;
+        }
+
+        .location-info a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #FF69B4;
+        }
+
+        .copyright {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🥎 Christina Gabriele | CT Softball Pitching Coach</h1>
+        <p>Semi-private lessons, clinics, and elite-level instruction</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="coach.html">Meet Your Coach</a>
+        <a href="clinics.html">My Clinics</a>
+        <a href="events.html">Events</a>
+        <a href="register.html">Register</a>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h2>Pitch Perfect Summer Series</h2>
+            <p>My summer clinic lineup — small groups, elite instruction, and a focus on mechanics that last.</p>
+        </div>
+
+        <div class="clinics-grid">
+            <div class="clinic-card">
+                <div class="clinic-card-header">
+                    <h3>🔥 Fastball Fundamentals</h3>
+                </div>
+                <div class="clinic-card-body">
+                    <h4>Build a Dominant Fastball</h4>
+                    <p>Master the foundational pitch that every pitcher needs. This clinic focuses on grip, release mechanics, arm angle, and consistency to develop a fastball that intimidates hitters.</p>
+                    <div class="clinic-details">
+                        <p><strong>Skill Level:</strong> All levels (beginner to advanced)</p>
+                        <p><strong>Focus Areas:</strong> Grip, mechanics, velocity, consistency</p>
+                        <p><strong>Duration:</strong> 2 hours</p>
+                        <p><strong>Class Size:</strong> 6 athletes max</p>
+                    </div>
+                    <p><strong>What You'll Learn:</strong></p>
+                    <ul>
+                        <li>Proper grip and hand positioning</li>
+                        <li>Arm slot and release mechanics</li>
+                        <li>Building velocity safely</li>
+                        <li>Consistency and control drills</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="clinic-card">
+                <div class="clinic-card-header">
+                    <h3>🌀 Curveball Mastery</h3>
+                </div>
+                <div class="clinic-card-body">
+                    <h4>Add Movement and Deception</h4>
+                    <p>Learn the mechanics of an effective breaking ball. This clinic teaches the curveball grip, arm action, and strategies for using movement to get strikeouts and weak contact.</p>
+                    <div class="clinic-details">
+                        <p><strong>Skill Level:</strong> Intermediate to advanced</p>
+                        <p><strong>Focus Areas:</strong> Grip, spin rate, movement, sequencing</p>
+                        <p><strong>Duration:</strong> 2 hours</p>
+                        <p><strong>Class Size:</strong> 6 athletes max</p>
+                    </div>
+                    <p><strong>What You'll Learn:</strong></p>
+                    <ul>
+                        <li>Curveball grip variations</li>
+                        <li>Spin mechanics and wrist position</li>
+                        <li>Movement and depth</li>
+                        <li>When and how to throw effectively</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="clinic-card">
+                <div class="clinic-card-header">
+                    <h3>⬆️ Riseball Revolution</h3>
+                </div>
+                <div class="clinic-card-body">
+                    <h4>Master the Game's Toughest Pitch</h4>
+                    <p>The riseball is one of the most feared pitches in softball. This advanced clinic breaks down the mechanics, grip, and arm action needed to throw a rising fastball that hitters can't lay off.</p>
+                    <div class="clinic-details">
+                        <p><strong>Skill Level:</strong> Advanced</p>
+                        <p><strong>Focus Areas:</strong> Grip, backspin, arm angle, placement</p>
+                        <p><strong>Duration:</strong> 2 hours</p>
+                        <p><strong>Class Size:</strong> 6 athletes max</p>
+                    </div>
+                    <p><strong>What You'll Learn:</strong></p>
+                    <ul>
+                        <li>Riseball grip and finger position</li>
+                        <li>Creating backspin and rise</li>
+                        <li>Arm angle and release mechanics</li>
+                        <li>Strategic placement and pitch sequencing</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="location-info">
+            <p><strong>📍 All clinics held at:</strong> Mitchell College Softball Field</p>
+            <p>437 Pequot Avenue, New London, CT 06320</p>
+            <p><a href="https://maps.google.com/?q=437+Pequot+Avenue+New+London+CT+06320" target="_blank">View on Google Maps →</a></p>
+        </div>
+
+        <div class="cta-section">
+            <a href="register.html" class="cta-btn">Register Now →</a>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Ready to Perfect Your Pitch?</strong></p>
+        <p>Contact Coach Christina: <a href="mailto:gabriele_c@mitchell.edu" style="color: #FFD700;">gabriele_c@mitchell.edu</a></p>
+        <div class="footer-links">
+            <a href="register.html">Register</a>
+            <a href="mailto:gabriele_c@mitchell.edu">Contact Us</a>
+            <a href="terms-of-use.html">Terms of Use</a>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Christina Gabriele. All rights reserved.</p>
+            <p>CT Softball Pitching Coach — Semi-private lessons, clinics, and elite-level instruction</p>
+        </div>
+    </footer>
+</body>
+</html>
