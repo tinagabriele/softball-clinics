@@ -120,7 +120,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        /* In The Press Section */
+        /* Timeline Section */
         .press-section {
             background: white;
             padding: 40px;
@@ -131,59 +131,113 @@
         .press-section h2 {
             color: #FF69B4;
             font-size: 1.8em;
-            margin-bottom: 25px;
+            margin-bottom: 30px;
             text-align: center;
         }
 
-        .press-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
+        .timeline {
+            position: relative;
+            padding-left: 40px;
         }
 
-        .press-card {
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 12px;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #FF69B4, #FFD700);
+            border-radius: 2px;
+        }
+
+        .timeline-year {
+            position: relative;
+            margin-bottom: 30px;
+        }
+
+        .timeline-year-label {
+            position: relative;
+            display: inline-block;
+            background: linear-gradient(135deg, #FF69B4 0%, #FFD700 100%);
+            color: white;
+            font-weight: bold;
+            font-size: 1.1em;
+            padding: 6px 18px;
+            border-radius: 20px;
+            margin-bottom: 15px;
+            margin-left: -8px;
+        }
+
+        .timeline-year-label::before {
+            content: '';
+            position: absolute;
+            left: -20px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 14px;
+            height: 14px;
+            background: #FF69B4;
+            border: 3px solid white;
+            border-radius: 50%;
+            box-shadow: 0 0 0 3px #FF69B4;
+        }
+
+        .timeline-items {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .timeline-card {
             border: 2px solid #eee;
             border-radius: 8px;
-            padding: 20px;
+            padding: 18px 20px;
             transition: border-color 0.3s, transform 0.3s;
+            background: #fafafa;
         }
 
-        .press-card:hover {
+        .timeline-card:hover {
             border-color: #FF69B4;
-            transform: translateY(-3px);
+            transform: translateX(5px);
         }
 
-        .press-card .press-source {
-            font-size: 0.8em;
+        .timeline-card .press-source {
+            font-size: 0.75em;
             font-weight: bold;
             text-transform: uppercase;
             color: #FF69B4;
             letter-spacing: 1px;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
         }
 
-        .press-card h4 {
+        .timeline-card h4 {
             color: #333;
-            font-size: 1.05em;
-            margin-bottom: 8px;
+            font-size: 1em;
+            margin-bottom: 6px;
             line-height: 1.4;
         }
 
-        .press-card p {
+        .timeline-card p {
             color: #888;
             font-size: 0.85em;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
-        .press-card a {
+        .timeline-card a {
             color: #FF69B4;
             text-decoration: none;
             font-weight: bold;
             font-size: 0.9em;
         }
 
-        .press-card a:hover {
+        .timeline-card a:hover {
             text-decoration: underline;
+        }
+
+        .timeline-card.featured {
+            border-color: #FFD700;
+            background: #fffdf0;
         }
 
         footer {
@@ -276,55 +330,78 @@
 
         <div class="press-section">
             <h2>📰 In The Press</h2>
-            <div class="press-grid">
-                <div class="press-card">
-                    <div class="press-source">George Mason Athletics</div>
-                    <h4>Rookie Profiles: Christina Gabriele</h4>
-                    <p>2013 — Freshman season preview — pitcher/first baseman from Miami, FL</p>
-                    <a href="https://gomason.com/news/2013/1/30/206178461.aspx" target="_blank">Read More →</a>
+            <div class="timeline">
+
+                <!-- 2013 -->
+                <div class="timeline-year">
+                    <div class="timeline-year-label">2013</div>
+                    <div class="timeline-items">
+                        <div class="timeline-card">
+                            <div class="press-source">George Mason Athletics</div>
+                            <h4>Rookie Profiles: Christina Gabriele</h4>
+                            <p>Freshman season preview — pitcher/first baseman from Miami, FL</p>
+                            <a href="https://gomason.com/news/2013/1/30/206178461.aspx" target="_blank">Read More →</a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="press-card">
-                    <div class="press-source">MaxPreps</div>
-                    <h4>2012 MaxPreps Medium Schools All-American Team</h4>
-                    <p>2012 — Named to the national All-American team after a dominant senior season (23-2, 171 K, 0.84 ERA)</p>
-                    <a href="https://www.maxpreps.com/news/article.aspx?articleid=4c01063b-362c-444f-9ff6-b6194ac59751" target="_blank">Read More →</a>
+                <!-- 2012 -->
+                <div class="timeline-year">
+                    <div class="timeline-year-label">2012</div>
+                    <div class="timeline-items">
+                        <div class="timeline-card">
+                            <div class="press-source">MaxPreps</div>
+                            <h4>MaxPreps Medium Schools All-American Team</h4>
+                            <p>Named to the national All-American team after a dominant senior season (23-2, 171 K, 0.84 ERA)</p>
+                            <a href="https://www.maxpreps.com/news/article.aspx?articleid=4c01063b-362c-444f-9ff6-b6194ac59751" target="_blank">Read More →</a>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="press-source">ESPN</div>
+                            <h4>ESPN Top 100 Watchlist — Class of 2012</h4>
+                            <p>Ranked #29 nationally among high school softball recruits</p>
+                            <a href="https://www.espn.com/high-school/softball/x98A-uY7q-8hRm/recruiting/rankings/players/_/class/2012" target="_blank">Read More →</a>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="press-source">Cape Coral Breeze</div>
+                            <h4>Class 4A All-Florida High School Softball Team</h4>
+                            <p>Named Florida Dairy Farmers Class 4A Player of the Year</p>
+                            <a href="https://www.capecoralbreeze.com/sports/local-sports/2012/07/06/class-4a-all-florida-high-school-softball-teams/" target="_blank">Read More →</a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="press-card">
-                    <div class="press-source">ESPN</div>
-                    <h4>ESPN Top 100 Watchlist — Class of 2012</h4>
-                    <p>2012 — Ranked #29 nationally among high school softball recruits</p>
-                    <a href="https://www.espn.com/high-school/softball/x98A-uY7q-8hRm/recruiting/rankings/players/_/class/2012" target="_blank">Read More →</a>
+                <!-- 2011 -->
+                <div class="timeline-year">
+                    <div class="timeline-year-label">2011</div>
+                    <div class="timeline-items">
+                        <div class="timeline-card">
+                            <div class="press-source">George Mason Athletics</div>
+                            <h4>Softball Signs Three Players to National Letters of Intent</h4>
+                            <p>Christina commits to George Mason University on a full scholarship</p>
+                            <a href="https://gomason.com/news/2011/11/22/205337491.aspx" target="_blank">Read More →</a>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="press-source">MaxPreps</div>
+                            <h4>Underclass All-American Softball Team</h4>
+                            <p>Selected as a junior after leading Gulliver Prep to a state title (21-2, 151 K, 0.93 ERA)</p>
+                            <a href="https://www.maxpreps.com/news/oURHjqQFEeCkhgAcxJSkrA/underclass-all-american-softball-teams.htm" target="_blank">Read More →</a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="press-card">
-                    <div class="press-source">Cape Coral Breeze</div>
-                    <h4>Class 4A All-Florida High School Softball Team</h4>
-                    <p>2012 — Named Florida Dairy Farmers Class 4A Player of the Year</p>
-                    <a href="https://www.capecoralbreeze.com/sports/local-sports/2012/07/06/class-4a-all-florida-high-school-softball-teams/" target="_blank">Read More →</a>
+                <!-- Highlight Reel -->
+                <div class="timeline-year">
+                    <div class="timeline-year-label">🎬 Highlights</div>
+                    <div class="timeline-items">
+                        <div class="timeline-card featured">
+                            <div class="press-source">YouTube</div>
+                            <h4>Christina Gabriele — Highlight Reel</h4>
+                            <p>Back when recruiting meant burning highlight DVDs and hoping coaches checked their email</p>
+                            <a href="https://www.youtube.com/watch?v=zqH9JggdCHs" target="_blank">Watch Video →</a>
+                        </div>
+                    </div>
                 </div>
 
-                <div class="press-card">
-                    <div class="press-source">George Mason Athletics</div>
-                    <h4>Softball Signs Three Players to National Letters of Intent</h4>
-                    <p>2011 — Christina commits to George Mason University on a full scholarship</p>
-                    <a href="https://gomason.com/news/2011/11/22/205337491.aspx" target="_blank">Read More →</a>
-                </div>
-
-                <div class="press-card">
-                    <div class="press-source">MaxPreps</div>
-                    <h4>2011 Underclass All-American Softball Team</h4>
-                    <p>2011 — Selected as a junior after leading Gulliver Prep to a state title (21-2, 151 K, 0.93 ERA)</p>
-                    <a href="https://www.maxpreps.com/news/oURHjqQFEeCkhgAcxJSkrA/underclass-all-american-softball-teams.htm" target="_blank">Read More →</a>
-                </div>
-
-                <div class="press-card" style="grid-column: 1 / -1;">
-                    <div class="press-source">YouTube</div>
-                    <h4>🎬 Christina Gabriele — Highlight Reel</h4>
-                    <p>Back when recruiting meant burning highlight DVDs and hoping coaches checked their email</p>
-                    <a href="https://www.youtube.com/watch?v=zqH9JggdCHs" target="_blank">Watch Video →</a>
-                </div>
             </div>
         </div>
     </div>
