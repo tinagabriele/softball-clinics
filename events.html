@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events & Tournaments - Pitch Perfect Summer Series</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background: linear-gradient(135deg, #FF69B4 0%, #FFD700 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD700;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-header h2 {
+            font-size: 2em;
+            color: #FF69B4;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            color: #666;
+            font-size: 1.1em;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .event-card-header {
+            background: linear-gradient(135deg, #FF69B4 0%, #FFD700 100%);
+            color: white;
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .event-card-header h3 {
+            font-size: 1.4em;
+        }
+
+        .event-badge {
+            background: rgba(255,255,255,0.25);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .event-card-body {
+            padding: 25px;
+        }
+
+        .event-details-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 10px 20px;
+            margin-bottom: 20px;
+        }
+
+        .event-details-grid .label {
+            font-weight: bold;
+            color: #FF69B4;
+            white-space: nowrap;
+        }
+
+        .event-details-grid .value {
+            color: #555;
+        }
+
+        .event-details-grid .value a {
+            color: #FF69B4;
+            text-decoration: none;
+        }
+
+        .event-details-grid .value a:hover {
+            text-decoration: underline;
+        }
+
+        .event-description {
+            color: #555;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            line-height: 1.8;
+        }
+
+        .event-highlight {
+            background: #fff0f7;
+            border-left: 4px solid #FF69B4;
+            padding: 12px 18px;
+            margin-top: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .event-highlight p {
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .upcoming-badge {
+            display: inline-block;
+            background: #d4edda;
+            color: #155724;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+
+        .cta-section h3 {
+            color: #FF69B4;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF69B4 0%, #FFD700 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 105, 180, 0.4);
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: #FFD700;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #FF69B4;
+        }
+
+        .copyright {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .event-card-header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .event-details-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>⚾ Pitch Perfect Summer Series</h1>
+        <p>Events & Tournaments — Summer 2026</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="index.html#coach">Meet Your Coach</a>
+        <a href="index.html#clinics">Our Clinics</a>
+        <a href="events.html">Events</a>
+        <a href="register.html">Register</a>
+        <a href="terms-of-use.html">Terms of Use</a>
+    </nav>
+
+    <div class="container">
+        <div class="page-header">
+            <h2>Upcoming Events & Tournaments</h2>
+            <p>Catch Coach Christina in action this summer! Here's where you can find us competing and coaching at the highest level.</p>
+        </div>
+
+        <!-- NEF Tournament -->
+        <div class="event-card">
+            <div class="event-card-header">
+                <h3>🏆 New England's Finest Summer Showcase</h3>
+                <span class="event-badge">Tournament</span>
+            </div>
+            <div class="event-card-body">
+                <div class="event-details-grid">
+                    <span class="label">📅 Dates:</span>
+                    <span class="value">July 31 – August 2, 2026</span>
+
+                    <span class="label">📍 Location:</span>
+                    <span class="value">Plainville Softball Complex, Plainville, MA</span>
+
+                    <span class="label">🎯 Divisions:</span>
+                    <span class="value">16U & 18U</span>
+
+                    <span class="label">⚾ Format:</span>
+                    <span class="value">6-game guarantee (2 games per day)</span>
+
+                    <span class="label">🔗 Info:</span>
+                    <span class="value"><a href="https://register.ryzer.com/camp.cfm?id=311254" target="_blank">Tournament Details →</a></span>
+                </div>
+
+                <div class="event-description">
+                    <p>One of the premier summer showcases in New England, bringing together top talent from across the region. Coach Christina will be attending with her team — come see elite-level softball and connect with us!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- All-Star Game -->
+        <div class="event-card">
+            <div class="event-card-header">
+                <h3>⭐ NEF Friday Night All-Star Game</h3>
+                <span class="event-badge">All-Star</span>
+            </div>
+            <div class="event-card-body">
+                <div class="event-details-grid">
+                    <span class="label">📅 Date:</span>
+                    <span class="value">Friday, July 31, 2026</span>
+
+                    <span class="label">⏰ Time:</span>
+                    <span class="value">Evening (time TBD)</span>
+
+                    <span class="label">📍 Location:</span>
+                    <span class="value">Plainville Softball Complex, Plainville, MA</span>
+
+                    <span class="label">🎤 Role:</span>
+                    <span class="value"><strong>Coach Christina — All-Star Game Coach</strong></span>
+                </div>
+
+                <div class="event-highlight">
+                    <p>🌟 <strong>Coach Christina has been selected to coach one of the Friday Night All-Star Games!</strong> Come out and watch the best players in the region compete under the lights. A can't-miss event to kick off the NEF weekend.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h3>Want to Train Before Tournament Season?</h3>
+            <p>Get your mechanics dialed in with our summer pitching clinics — limited to 6 athletes per session for maximum individual attention.</p>
+            <a href="register.html" class="btn">Register for a Clinic →</a>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Ready to Perfect Your Pitch?</strong></p>
+        <p>Contact Coach Christina: <a href="mailto:gabriele_c@mitchell.edu" style="color: #FFD700;">gabriele_c@mitchell.edu</a></p>
+        <div class="footer-links">
+            <a href="register.html">Register</a>
+            <a href="mailto:gabriele_c@mitchell.edu">Contact Us</a>
+            <a href="terms-of-use.html">Terms of Use</a>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Christina Gabriele. All rights reserved.</p>
+            <p>Pitch Perfect Summer Series - Elite Softball Pitching Clinics</p>
+        </div>
+    </footer>
+</body>
+</html>
