@@ -9,25 +9,25 @@
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
-            color: #221112;
-            background-color: #ff66c4;
+            color: #333;
+            background-color: #f9f9f9;
             -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
         }
         header {
-            background: linear-gradient(135deg, #ff66c4 0%, #ffd93b 100%);
+            background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%);
             color: white;
             padding: 40px 20px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.13);
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
-            text-shadow: 2px 2px 4px #ff2f1f33;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
-        header p { font-size: 1.2em; opacity: 0.94; }
+        header p { font-size: 1.2em; opacity: 0.95; }
         nav {
-            background-color: #ff2f1f;
+            background-color: #333;
             padding: 15px 0;
             text-align: center;
             position: sticky;
@@ -39,74 +39,74 @@
             text-decoration: none;
             margin: 0 20px;
             font-weight: bold;
-            transition: color 0.24s;
+            transition: color 0.3s;
         }
-        nav a.active, nav a:hover { color: #ffd93b; }
+        nav a.active, nav a:hover { color: #FFD93B; }
         .hero {
             text-align: center;
             padding: 80px 20px;
-            background: #fff3fa;
+            background: white;
         }
-        .hero h2 { font-size: 2.5em; color: #221112; margin-bottom: 20px;}
-        .hero h2 span { color: #ff2f1f; }
-        .hero p { font-size: 1.18em; color: #661e45; max-width: 650px; margin: 0 auto 35px; }
+        .hero h2 { font-size: 2.5em; color: #333; margin-bottom: 20px;}
+        .hero h2 span { color: #FF66C4; }
+        .hero p { font-size: 1.18em; color: #666; max-width: 650px; margin: 0 auto 35px; }
         .hero-btn {
             display: inline-block;
-            background: linear-gradient(135deg, #ff66c4 0%, #ffd93b 100%);
+            background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%);
             color: white;
             padding: 18px 50px;
             border-radius: 50px;
             text-decoration: none;
             font-weight: bold;
             font-size: 1.3em;
-            transition: transform 0.18s, box-shadow 0.18s;
-            text-shadow: 1px 1px 2px #ff2f1f33;
-            box-shadow: 0 4px 15px #ff66c47c;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+            box-shadow: 0 4px 15px rgba(255, 102, 196, 0.4);
         }
         .hero-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 25px #ff2f1f33;
+            box-shadow: 0 8px 25px rgba(255, 102, 196, 0.4);
         }
-        .why-section { background: #ffd93b; padding: 60px 20px; }
-        .why-section h2 { text-align: center; color: #ff2f1f; font-size: 2em; margin-bottom: 15px; }
-        .why-section .subtitle { text-align: center; color: #661e45; font-size: 1.1em; max-width: 600px; margin: 0 auto 40px;}
+        .why-section { background: #fff0f7; padding: 60px 20px; }
+        .why-section h2 { text-align: center; color: #FF66C4; font-size: 2em; margin-bottom: 15px; }
+        .why-section .subtitle { text-align: center; color: #666; font-size: 1.1em; max-width: 600px; margin: 0 auto 40px;}
         .stats-bar {
             display: grid;
             grid-template-columns: repeat(4, 1fr);
             gap: 20px; max-width: 900px; margin: 0 auto 40px;
         }
         .stat-item {
-            text-align: center; background: #fff3fa; padding: 25px 15px; border-radius: 10px;
-            box-shadow: 0 4px 15px #ff66c412; transition: transform 0.19s;
+            text-align: center; background: white; padding: 25px 15px; border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.2s;
         }
         .stat-item:hover { transform: translateY(-5px); }
-        .stat-number { font-size: 2.25em; font-weight: bold; background: linear-gradient(135deg, #ff66c4 0%, #ffd93b 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 5px; }
-        .stat-label { color: #ff2f1f; font-size: 0.98em; font-weight: bold; }
-        .why-text { max-width: 700px; margin: 0 auto; text-align: center; color: #5e0a33; font-size: 1.07em; line-height: 1.8; }
-        .events-preview { background: #fff3fa; padding: 60px 20px; }
-        .events-preview h2 { text-align: center; color: #ff2f1f; font-size: 2em; margin-bottom: 30px; }
+        .stat-number { font-size: 2.25em; font-weight: bold; background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 5px; }
+        .stat-label { color: #FF66C4; font-size: 0.98em; font-weight: bold; }
+        .why-text { max-width: 700px; margin: 0 auto; text-align: center; color: #555; font-size: 1.07em; line-height: 1.8; }
+        .events-preview { background: white; padding: 60px 20px; }
+        .events-preview h2 { text-align: center; color: #FF66C4; font-size: 2em; margin-bottom: 30px; }
         .events-preview-card {
-            max-width: 700px; margin: 0 auto; background: #ffd93b; border-left: 7px solid #ff2f1f; border-radius: 0 12px 12px 0; padding: 25px 30px;
+            max-width: 700px; margin: 0 auto; background: #fff0f7; border-left: 7px solid #FF66C4; border-radius: 0 12px 12px 0; padding: 25px 30px;
             display: flex; justify-content: space-between; align-items: center; transition: transform 0.15s;
         }
         .events-preview-card:hover { transform: translateX(5px); }
-        .events-preview-info h3 { color: #221112; font-size: 1.2em; margin-bottom: 5px; }
-        .events-preview-info p { color: #661e45; font-size: 0.97em; }
+        .events-preview-info h3 { color: #333; font-size: 1.2em; margin-bottom: 5px; }
+        .events-preview-info p { color: #666; font-size: 0.97em; }
         .events-preview-info .highlight-tag {
-            display: inline-block; background: linear-gradient(135deg, #ff66c4 0%, #ffd93b 100%); color: #fff; padding: 3px 10px; border-radius: 12px; font-size: 0.83em; font-weight: bold; margin-top: 8px;
+            display: inline-block; background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%); color: #fff; padding: 3px 10px; border-radius: 12px; font-size: 0.83em; font-weight: bold; margin-top: 8px;
         }
         .events-btn {
-            display: inline-block; background: #ff2f1f; color: #fff; padding: 10px 25px; border-radius: 8px; text-decoration: none;
-            font-weight: bold; font-size: 1em; transition: background 0.22s; white-space: nowrap;
+            display: inline-block; background: #333; color: #fff; padding: 10px 25px; border-radius: 8px; text-decoration: none;
+            font-weight: bold; font-size: 1em; transition: background 0.3s; white-space: nowrap;
         }
-        .events-btn:hover { background: #ffd93b; color: #ff2f1f; }
+        .events-btn:hover { background: #FF66C4; color: #fff; }
         footer {
-            background-color: #ff2f1f; color: white; text-align: center; padding: 30px 20px; margin-top: 0;
+            background-color: #333; color: white; text-align: center; padding: 30px 20px; margin-top: 0;
         }
         .footer-links { margin: 20px 0; }
-        .footer-links a { color: #ffd93b; text-decoration: none; margin: 0 15px; transition: color 0.34s;}
-        .footer-links a:hover { color: #ff66c4; }
-        .copyright { border-top: 1px solid #ff66c4; padding-top: 20px; margin-top: 20px; font-size: 0.91em; }
+        .footer-links a { color: #FFD93B; text-decoration: none; margin: 0 15px; transition: color 0.3s;}
+        .footer-links a:hover { color: #FF66C4; }
+        .copyright { border-top: 1px solid #555; padding-top: 20px; margin-top: 20px; font-size: 0.9em; }
         @media (max-width: 768px) {
             header h1 { font-size: 1.8em; }
             nav a { display: block; margin: 10px 0; }
@@ -158,12 +158,12 @@
         </div>
         <p class="why-text">From Gulliver Prep to George Mason University to the Mitchell College coaching staff, I've spent my career studying pitching mechanics, building winning mindsets, and loving the game. I offer more than just reps — I offer long-term development and emotional support you won't find anywhere else.</p>
     </section>
-    <section style="background: #fff3fa; padding: 60px 20px;">
+    <section style="background: white; padding: 60px 20px;">
         <div style="max-width: 800px; margin: 0 auto;">
-            <h2 style="text-align: center; color: #ff2f1f; font-size: 2em; margin-bottom: 30px;">What Makes Me Different</h2>
-            <p style="color: #3a0921; font-size: 1.1em; line-height: 1.9; margin-bottom: 20px;">A lot of pitching coaches will teach you how to throw a pitch. I teach you how to have a <strong>career</strong>. The goal is building healthy, resilient, coachable athletes who succeed on the field — and in life.</p>
-            <p style="color: #5e0a33; font-size: 1.05em; line-height: 1.9; margin-bottom: 20px;">I coach the <strong>whole athlete</strong> — mechanics, injury prevention, and the habits that keep you competing at your best for seasons to come. I will help you unlock your best, and enjoy the work it takes to get there.</p>
-            <p style="color: #5e0a33; font-size: 1.05em; line-height: 1.9;">I learned this firsthand. Debilitating back injuries in high school changed the way I think about training, and that perspective informs every lesson I teach.</p>
+            <h2 style="text-align: center; color: #FF66C4; font-size: 2em; margin-bottom: 30px;">What Makes Me Different</h2>
+            <p style="color: #555; font-size: 1.1em; line-height: 1.9; margin-bottom: 20px;">A lot of pitching coaches will teach you how to throw a pitch. I teach you how to have a <strong>career</strong>. The goal is building healthy, resilient, coachable athletes who succeed on the field — and in life.</p>
+            <p style="color: #555; font-size: 1.05em; line-height: 1.9; margin-bottom: 20px;">I coach the <strong>whole athlete</strong> — mechanics, injury prevention, and the habits that keep you competing at your best for seasons to come. I will help you unlock your best, and enjoy the work it takes to get there.</p>
+            <p style="color: #555; font-size: 1.05em; line-height: 1.9;">I learned this firsthand. Debilitating back injuries in high school changed the way I think about training, and that perspective informs every lesson I teach.</p>
         </div>
     </section>
     <section class="events-preview">
@@ -179,7 +179,7 @@
     </section>
     <footer>
         <p><strong>Ready to Perfect Your Pitch?</strong></p>
-        <p>Contact Coach Christina: <a href="mailto:gabriele_c@mitchell.edu" style="color: #ffd93b;">gabriele_c@mitchell.edu</a></p>
+        <p>Contact Coach Christina: <a href="mailto:gabriele_c@mitchell.edu" style="color: #FFD93B;">gabriele_c@mitchell.edu</a></p>
         <div class="footer-links">
             <a href="register.html">Register Now</a>
             <a href="mailto:gabriele_c@mitchell.edu">Contact Us</a>
