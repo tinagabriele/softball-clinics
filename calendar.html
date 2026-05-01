@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar | Christina Gabriele - CT Softball Pitching Coach</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        header {
+            background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
+        nav {
+            background-color: #333;
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: #FFD93B;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .page-header h2 {
+            font-size: 2em;
+            color: #FF66C4;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            color: #666;
+            font-size: 1.1em;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .password-gate {
+            text-align: center;
+            background: white;
+            padding: 60px 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            max-width: 450px;
+            margin: 60px auto;
+        }
+
+        .password-gate h3 {
+            color: #FF66C4;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .password-gate p {
+            color: #666;
+            margin-bottom: 25px;
+        }
+
+        .password-gate input {
+            width: 100%;
+            padding: 12px 18px;
+            font-size: 1em;
+            border: 2px solid #eee;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: border-color 0.3s;
+        }
+
+        .password-gate input:focus {
+            outline: none;
+            border-color: #FF66C4;
+        }
+
+        .password-gate button {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%);
+            color: white;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, box-shadow 0.2s;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .password-gate button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 102, 196, 0.4);
+        }
+
+        .password-error {
+            color: #e74c3c;
+            font-size: 0.9em;
+            margin-top: 10px;
+            display: none;
+        }
+
+        .calendar-content {
+            display: none;
+        }
+
+        .calendar-wrapper {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            padding: 20px;
+            text-align: center;
+        }
+
+        .calendar-wrapper iframe {
+            width: 100%;
+            height: 600px;
+            border: none;
+            border-radius: 8px;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
+        }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: #FFD93B;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #FF66C4;
+        }
+
+        .copyright {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .password-gate {
+                margin: 30px 20px;
+                padding: 40px 20px;
+            }
+
+            .calendar-wrapper iframe {
+                height: 450px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>🥎 Christina Gabriele | CT Softball Pitching Coach</h1>
+        <p>Semi-private lessons, clinics, and elite-level instruction</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="coach.html">Meet Your Coach</a>
+        <a href="clinics.html">My Clinics</a>
+        <a href="events.html">Events</a>
+        <a href="register.html">Register</a>
+        <a href="calendar.html">📅 Calendar 🔒</a>
+    </nav>
+
+    <div class="container">
+        <div class="password-gate" id="passwordGate">
+            <h3>🔒 Private Calendar</h3>
+            <p>This calendar is for Coach Christina's personal use. Enter the password to view.</p>
+            <input type="password" id="passwordInput" placeholder="Enter password" onkeypress="if(event.key==='Enter') checkPassword()">
+            <br>
+            <button onclick="checkPassword()">Unlock Calendar</button>
+            <p class="password-error" id="errorMsg">❌ Incorrect password. Try again.</p>
+        </div>
+
+        <div class="calendar-content" id="calendarContent">
+            <div class="page-header">
+                <h2>📅 My Softball Calendar</h2>
+                <p>All clinics, events, and coaching commitments in one place.</p>
+            </div>
+            <div class="calendar-wrapper">
+                <iframe src="https://calendar.google.com/calendar/embed?src=fdc599cf7a21dc97d24df47826f7535cd2c438ef5a649c0dc7cf3a0418b17b46%40group.calendar.google.com&ctz=America%2FNew_York"></iframe>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <p><strong>Ready to Perfect Your Pitch?</strong></p>
+        <p>Contact Coach Christina: <a href="mailto:gabriele_c@mitchell.edu" style="color: #FFD93B;">gabriele_c@mitchell.edu</a></p>
+        <div class="footer-links">
+            <a href="register.html">Register</a>
+            <a href="mailto:gabriele_c@mitchell.edu">Contact Us</a>
+            <a href="terms-of-use.html">Terms of Use</a>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2026 Christina Gabriele. All rights reserved.</p>
+            <p>CT Softball Pitching Coach — Semi-private lessons, clinics, and elite-level instruction</p>
+        </div>
+    </footer>
+
+    <script>
+        function checkPassword() {
+            var input = document.getElementById('passwordInput').value;
+            if (input === 'Glitter81!') {
+                document.getElementById('passwordGate').style.display = 'none';
+                document.getElementById('calendarContent').style.display = 'block';
+            } else {
+                document.getElementById('errorMsg').style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
