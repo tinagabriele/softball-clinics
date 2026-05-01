@@ -3,29 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christina Gabriele | CT Softball Pitching Coach</title>
+    <title>Events | Christina Gabriele - CT Softball Pitching Coach</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
         body {
             font-family: 'Arial', sans-serif;
             line-height: 1.6;
             color: #333;
             background-color: #f9f9f9;
-            -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
         }
+
         header {
-            background: linear-gradient(135deg, #FF66C4 0%, #FFD700 100%);
+            background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%);
             color: white;
             padding: 40px 20px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
+
         header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
-        header p { font-size: 1.2em; opacity: 0.95; }
+
+        header p {
+            font-size: 1.2em;
+            opacity: 0.95;
+        }
+
         nav {
             background-color: #333;
             padding: 15px 0;
@@ -34,6 +45,7 @@
             top: 0;
             z-index: 100;
         }
+
         nav a {
             color: white;
             text-decoration: none;
@@ -41,79 +53,223 @@
             font-weight: bold;
             transition: color 0.3s;
         }
-        nav a.active, nav a:hover { color: #FFD700; }
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background: white;
+
+        nav a:hover {
+            color: #FFD93B;
         }
-        .hero h2 { font-size: 2.5em; color: #333; margin-bottom: 20px;}
-        .hero h2 span { color: #FF66C4; }
-        .hero p { font-size: 1.18em; color: #666; max-width: 650px; margin: 0 auto 35px; }
-        .hero-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #FF66C4 0%, #FFD700 100%);
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .page-header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .page-header h2 {
+            font-size: 2em;
+            color: #FF66C4;
+            margin-bottom: 15px;
+        }
+
+        .page-header p {
+            color: #666;
+            font-size: 1.1em;
+            max-width: 650px;
+            margin: 0 auto;
+        }
+
+        .event-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-bottom: 30px;
+            transition: transform 0.3s;
+        }
+
+        .event-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .event-card-header {
+            background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%);
             color: white;
-            padding: 18px 50px;
-            border-radius: 50px;
+            padding: 20px 25px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .event-card-header h3 {
+            font-size: 1.4em;
+        }
+
+        .event-badge {
+            background: rgba(255,255,255,0.25);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+
+        .event-card-body {
+            padding: 25px;
+        }
+
+        .event-details-grid {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 10px 20px;
+            margin-bottom: 20px;
+        }
+
+        .event-details-grid .label {
+            font-weight: bold;
+            color: #FF66C4;
+            white-space: nowrap;
+        }
+
+        .event-details-grid .value {
+            color: #555;
+        }
+
+        .event-details-grid .value a {
+            color: #FF66C4;
+            text-decoration: none;
+        }
+
+        .event-details-grid .value a:hover {
+            text-decoration: underline;
+        }
+
+        .event-description {
+            color: #555;
+            margin-top: 15px;
+            padding-top: 15px;
+            border-top: 1px solid #eee;
+            line-height: 1.8;
+        }
+
+        .event-highlight {
+            background: #fff0f7;
+            border-left: 4px solid #FF66C4;
+            padding: 12px 18px;
+            margin-top: 15px;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .event-highlight p {
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .upcoming-badge {
+            display: inline-block;
+            background: #d4edda;
+            color: #155724;
+            padding: 4px 12px;
+            border-radius: 12px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-left: 10px;
+            vertical-align: middle;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            margin-top: 40px;
+        }
+
+        .cta-section h3 {
+            color: #FF66C4;
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+
+        .cta-section p {
+            color: #666;
+            margin-bottom: 20px;
+            font-size: 1.05em;
+        }
+
+        .btn {
+            display: inline-block;
+            background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%);
+            color: white;
+            padding: 12px 30px;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            font-size: 1.3em;
             transition: transform 0.2s, box-shadow 0.2s;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
             box-shadow: 0 4px 15px rgba(255, 102, 196, 0.4);
         }
-        .hero-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 102, 196, 0.4);
-        }
-        .why-section { background: #fff0f7; padding: 60px 20px; }
-        .why-section h2 { text-align: center; color: #FF66C4; font-size: 2em; margin-bottom: 15px; }
-        .why-section .subtitle { text-align: center; color: #666; font-size: 1.1em; max-width: 600px; margin: 0 auto 40px;}
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px; max-width: 900px; margin: 0 auto 40px;
-        }
-        .stat-item {
-            text-align: center; background: white; padding: 25px 15px; border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.2s;
-        }
-        .stat-item:hover { transform: translateY(-5px); }
-        .stat-number { font-size: 2.25em; font-weight: bold; background: linear-gradient(135deg, #FF66C4 0%, #FFD700 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 5px; }
-        .stat-label { color: #FF66C4; font-size: 0.98em; font-weight: bold; }
-        .why-text { max-width: 700px; margin: 0 auto; text-align: center; color: #555; font-size: 1.07em; line-height: 1.8; }
-        .events-preview { background: white; padding: 60px 20px; }
-        .events-preview h2 { text-align: center; color: #FF66C4; font-size: 2em; margin-bottom: 30px; }
-        .events-preview-card {
-            max-width: 700px; margin: 0 auto; background: #fff0f7; border-left: 7px solid #FF66C4; border-radius: 0 12px 12px 0; padding: 25px 30px;
-            display: flex; justify-content: space-between; align-items: center; transition: transform 0.15s;
-        }
-        .events-preview-card:hover { transform: translateX(5px); }
-        .events-preview-info h3 { color: #333; font-size: 1.2em; margin-bottom: 5px; }
-        .events-preview-info p { color: #666; font-size: 0.97em; }
-        .events-preview-info .highlight-tag {
-            display: inline-block; background: linear-gradient(135deg, #FF66C4 0%, #FFD700 100%); color: #fff; padding: 3px 10px; border-radius: 12px; font-size: 0.83em; font-weight: bold; margin-top: 8px;
-        }
-        .events-btn {
-            display: inline-block; background: #333; color: #fff; padding: 10px 25px; border-radius: 8px; text-decoration: none;
-            font-weight: bold; font-size: 1em; transition: background 0.3s; white-space: nowrap;
-        }
-        .events-btn:hover { background: #FF66C4; color: #fff; }
+
         footer {
-            background-color: #333; color: white; text-align: center; padding: 30px 20px; margin-top: 0;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 50px;
         }
-        .footer-links { margin: 20px 0; }
-        .footer-links a { color: #FFD700; text-decoration: none; margin: 0 15px; transition: color 0.3s;}
-        .footer-links a:hover { color: #FF66C4; }
-        .copyright { border-top: 1px solid #555; padding-top: 20px; margin-top: 20px; font-size: 0.9em; }
+
+        footer p {
+            margin: 10px 0;
+        }
+
+        .footer-links {
+            margin: 20px 0;
+        }
+
+        .footer-links a {
+            color: #FFD93B;
+            text-decoration: none;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: #FF66C4;
+        }
+
+        .copyright {
+            border-top: 1px solid #555;
+            padding-top: 20px;
+            margin-top: 20px;
+            font-size: 0.9em;
+        }
+
         @media (max-width: 768px) {
-            header h1 { font-size: 1.8em; }
-            nav a { display: block; margin: 10px 0; }
-            .hero h2 { font-size: 1.8em; }
-            .hero-btn { padding: 15px 35px; font-size: 1.1em; }
-            .stats-bar { grid-template-columns: repeat(2, 1fr); }
-            .events-preview-card { flex-direction: column; text-align: center; gap: 15px; }
+            header h1 {
+                font-size: 1.8em;
+            }
+
+            nav a {
+                display: block;
+                margin: 10px 0;
+            }
+
+            .event-card-header {
+                flex-direction: column;
+                gap: 10px;
+                text-align: center;
+            }
+
+            .event-details-grid {
+                grid-template-columns: 1fr;
+            }
         }
     </style>
 </head>
@@ -122,79 +278,66 @@
         <h1>🥎 Christina Gabriele | CT Softball Pitching Coach</h1>
         <p>Semi-private lessons, clinics, and elite-level instruction</p>
     </header>
+
     <nav>
-        <a href="index.html" class="active">Home</a>
+        <a href="index.html">Home</a>
         <a href="coach.html">Meet Your Coach</a>
         <a href="clinics.html">My Clinics</a>
         <a href="events.html">Events</a>
         <a href="register.html">Register</a>
         <a href="calendar.html">📅 Calendar 🔒</a>
     </nav>
-    <section class="hero" id="home">
-        <h2>Take Your Pitching to the <span>Next Level</span></h2>
-        <p>Elite pitching instruction from someone who's been in the circle at every level — 3x high school state champ, D1 starter, college coach.</p>
-        <a href="register.html" class="hero-btn">Register for a Clinic →</a>
-    </section>
-    <section class="why-section">
-        <h2>Why Train With Me</h2>
-        <p class="subtitle">I bring the experience, the credentials, and the passion to help you reach your potential.</p>
-        <div class="stats-bar">
-            <div class="stat-item">
-                <div class="stat-number">10+</div>
-                <div class="stat-label">Years Coaching</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">3x</div>
-                <div class="stat-label">State Champion</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">322</div>
-                <div class="stat-label">Career Strikeouts</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">D1</div>
-                <div class="stat-label">Full Scholarship</div>
-            </div>
+
+    <div class="container">
+        <div class="page-header">
+            <h2>Upcoming Events & Tournaments</h2>
+            <p>Catch me in action this summer! Here's where you can find me competing and coaching at the highest level.</p>
         </div>
-        <p class="why-text">From Gulliver Prep to George Mason University to the Mitchell College coaching staff, I've spent my career studying pitching mechanics, building winning mindsets, and loving the game. I offer more than just reps — I offer long-term development and emotional support you won't find anywhere else.</p>
-    </section>
-    <section style="background: white; padding: 60px 20px;">
-        <div style="max-width: 800px; margin: 0 auto;">
-            <h2 style="text-align: center; color: #FF66C4; font-size: 2em; margin-bottom: 30px;">What Makes Me Different</h2>
-            <p style="color: #555; font-size: 1.1em; line-height: 1.9; margin-bottom: 20px;">A lot of pitching coaches will teach you how to throw a pitch. I teach you how to have a <strong>career</strong>. The goal is building healthy, resilient, coachable athletes who succeed on the field — and in life.</p>
-            <p style="color: #555; font-size: 1.05em; line-height: 1.9; margin-bottom: 20px;">I coach the <strong>whole athlete</strong> — mechanics, injury prevention, and the habits that keep you competing at your best for seasons to come. I will help you unlock your best, and enjoy the work it takes to get there.</p>
-            <p style="color: #555; font-size: 1.05em; line-height: 1.9;">I learned this firsthand. Debilitating back injuries in high school changed the way I think about training, and that perspective informs every lesson I teach.</p>
-        </div>
-    </section>
-    <section class="events-preview">
-        <h2>Find Me This Summer 🌞</h2>
-        <div class="events-preview-card">
-            <div class="events-preview-info">
+
+        <!-- NEF Tournament -->
+        <div class="event-card">
+            <div class="event-card-header">
                 <h3>🏆 New England's Finest Summer Showcase</h3>
-                <p>July 31 – August 2, 2026 • Plainville, MA</p>
-                <span class="highlight-tag">⭐ Coaching the All-Star Game</span>
+                <span class="event-badge">Tournament</span>
             </div>
-            <a href="events.html" class="events-btn">See All Events →</a>
+            <div class="event-card-body">
+                <div class="event-details-grid">
+                    <span class="label">📅 Dates:</span>
+                    <span class="value">July 31 – August 2, 2026</span>
+
+                    <span class="label">📍 Location:</span>
+                    <span class="value">Plainville Softball Complex, Plainville, MA</span>
+
+                    <span class="label">🔗 Info:</span>
+                    <span class="value"><a href="https://register.ryzer.com/camp.cfm?id=311254" target="_blank">Tournament Details →</a></span>
+                </div>
+
+                <div class="event-highlight">
+                    <p>⭐ <strong>Coach Christina has been selected to coach one of the Friday Night All-Star Games!</strong> Come watch the best players in the region compete under the lights on Friday, July 31.</p>
+                </div>
+            </div>
         </div>
-    </section>
+
+        <!-- CTA -->
+        <div class="cta-section">
+            <h3>Want to Train Before Tournament Season?</h3>
+            <p>Get your mechanics dialed in with my summer pitching clinics — limited to 6 athletes per session for maximum individual attention.</p>
+            <a href="register.html" class="btn">Register for a Clinic →</a>
+        </div>
+    </div>
+
     <footer>
         <p><strong>Ready to Perfect Your Pitch?</strong></p>
-        <p>Contact Coach Christina: <a href="mailto:gabriele_c@mitchell.edu" style="color: #FFD700;">gabriele_c@mitchell.edu</a></p>
+        <p>Contact Coach Christina: <a href="mailto:gabriele_c@mitchell.edu" style="color: #FFD93B;">gabriele_c@mitchell.edu</a></p>
         <div class="footer-links">
-            <a href="register.html">Register Now</a>
+            <a href="register.html">Register</a>
             <a href="mailto:gabriele_c@mitchell.edu">Contact Us</a>
             <a href="terms-of-use.html">Terms of Use</a>
         </div>
         <div class="copyright">
             <p>&copy; 2026 Christina Gabriele. All rights reserved.</p>
             <p>CT Softball Pitching Coach — Semi-private lessons, clinics, and elite-level instruction</p>
-            <p style="font-size: 0.8em; margin-top: 10px;">Images and content are protected intellectual property. Unauthorized reproduction or distribution is prohibited.</p>
         </div>
     </footer>
-    <script>
-        document.addEventListener('contextmenu', (e) => { e.preventDefault(); return false; });
-        document.addEventListener('selectstart', (e) => { e.preventDefault(); return false; });
-        document.addEventListener('dragstart', (e) => { e.preventDefault(); return false; });
-    </script>
 </body>
 </html>
