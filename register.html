@@ -507,11 +507,11 @@
                 <div id="sessions-container">
                     <div class="session-card" id="card-fastball">
                         <label>
-                            <input type="checkbox" name="session_fastball" value="Fastball Fundamentals - May 16">
+                            <input type="checkbox" name="session_fastball" value="Fastball Fundamentals - May 30">
                             <div class="session-info">
                                 <div class="session-title">🔥 Fastball Fundamentals</div>
                                 <div class="session-details">
-                                    Friday, May 16, 2026 • 10:00 AM – 12:00 PM<br>
+                                    Saturday, May 30, 2026 • 10:00 AM – 12:00 PM<br>
                                     All levels welcome
                                 </div>
                                 <span class="spots-remaining spots-available" id="spots-fastball">Loading spots...</span>
@@ -521,11 +521,11 @@
 
                     <div class="session-card" id="card-curveball">
                         <label>
-                            <input type="checkbox" name="session_curveball" value="Curveball Craft - June TBD">
+                            <input type="checkbox" name="session_curveball" value="Curveball Craft - June 13">
                             <div class="session-info">
                                 <div class="session-title">🌀 Curveball Craft</div>
                                 <div class="session-details">
-                                    June 2026 (exact date TBD) • 10:00 AM – 12:00 PM<br>
+                                    Saturday, June 13, 2026 • 10:00 AM – 12:00 PM<br>
                                     Intermediate to advanced
                                 </div>
                                 <span class="spots-remaining spots-available" id="spots-curveball">Loading spots...</span>
@@ -535,11 +535,11 @@
 
                     <div class="session-card" id="card-riseball">
                         <label>
-                            <input type="checkbox" name="session_riseball" value="Riseball Rundown - July TBD">
+                            <input type="checkbox" name="session_riseball" value="Riseball Rundown - August 22">
                             <div class="session-info">
                                 <div class="session-title">⬆️ Riseball Rundown</div>
                                 <div class="session-details">
-                                    July 2026 (exact date TBD) • 10:00 AM – 12:00 PM<br>
+                                    Saturday, August 22, 2026 • 10:00 AM – 12:00 PM<br>
                                     Advanced only
                                 </div>
                                 <span class="spots-remaining spots-available" id="spots-riseball">Loading spots...</span>
@@ -578,7 +578,7 @@
             <div class="form-section">
                 <h3>💰 Pricing & Payment</h3>
                 <div class="payment-info">
-                    <p><strong>🔥 Fastball Fundamentals (May 16):</strong> $65/player — <em>introductory pricing!</em></p>
+                    <p><strong>🔥 Fastball Fundamentals (May 30):</strong> $65/player — <em>introductory pricing!</em></p>
                     <p><strong>🌀 Curveball Craft & ⬆️ Riseball Rundown:</strong> $75/player</p>
                     <p style="margin-top: 12px;">All clinics are 2 hours and capped at 6 athletes for guaranteed one-on-one instruction.</p>
                     <p style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #ffe082;"><strong>Payment method:</strong> Zelle</p>
@@ -643,7 +643,6 @@
 
         const MAX_SPOTS = 6;
 
-        // Fetch current registration counts on page load
         async function loadSpotCounts() {
             try {
                 const response = await fetch(GOOGLE_SCRIPT_URL + '?action=getSpots');
@@ -688,9 +687,9 @@
             const messageDiv = document.getElementById('form-message');
 
             const sessions = [];
-            if (document.querySelector('input[name="session_fastball"]').checked) sessions.push('Fastball Fundamentals - May 16');
-            if (document.querySelector('input[name="session_curveball"]').checked) sessions.push('Curveball Craft - June TBD');
-            if (document.querySelector('input[name="session_riseball"]').checked) sessions.push('Riseball Rundown - July TBD');
+            if (document.querySelector('input[name="session_fastball"]').checked) sessions.push('Fastball Fundamentals - May 30');
+            if (document.querySelector('input[name="session_curveball"]').checked) sessions.push('Curveball Craft - June 13');
+            if (document.querySelector('input[name="session_riseball"]').checked) sessions.push('Riseball Rundown - August 22');
             if (document.querySelector('input[name="session_private"]').checked) sessions.push('Semi-Private Pitching Lesson');
 
             if (sessions.length === 0) {
