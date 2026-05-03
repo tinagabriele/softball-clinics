@@ -1,324 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meet Your Coach | Christina Gabriele - CT Softball Pitching Coach</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-        }
-
-        header {
-            background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%);
-            color: white;
-            padding: 40px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-
-        header p {
-            font-size: 1.2em;
-            opacity: 0.95;
-        }
-
-        nav {
-            background-color: #333;
-            padding: 15px 0;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-
-        nav a:hover {
-            color: #FFD93B;
-        }
-
-        .container {
-            max-width: 900px;
-            margin: 0 auto;
-            padding: 40px 20px;
-        }
-
-        .coach-section {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            margin-bottom: 30px;
-        }
-
-        .coach-content {
-            display: flex;
-            gap: 40px;
-            align-items: center;
-        }
-
-        .coach-text {
-            flex: 1;
-        }
-
-        .coach-text h2 {
-            color: #FF66C4;
-            font-size: 2em;
-            margin-bottom: 20px;
-        }
-
-        .coach-text p {
-            color: #666;
-            margin-bottom: 15px;
-            line-height: 1.8;
-        }
-
-        .coach-image {
-            text-align: center;
-            flex-shrink: 0;
-        }
-
-        .coach-image img {
-            width: 250px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .press-section {
-            background: white;
-            padding: 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-        }
-
-        .press-section h2 {
-            color: #FF66C4;
-            font-size: 1.8em;
-            margin-bottom: 30px;
-            text-align: center;
-        }
-
-        .timeline {
-            position: relative;
-            padding-left: 40px;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 12px;
-            top: 0;
-            bottom: 0;
-            width: 3px;
-            background: linear-gradient(to bottom, #FF66C4, #FFD93B);
-            border-radius: 2px;
-        }
-
-        .timeline-year {
-            position: relative;
-            margin-bottom: 30px;
-        }
-
-        .timeline-year-label {
-            position: relative;
-            display: inline-block;
-            background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%);
-            color: white;
-            font-weight: bold;
-            font-size: 1.1em;
-            padding: 6px 18px;
-            border-radius: 20px;
-            margin-bottom: 15px;
-            margin-left: -8px;
-        }
-
-        .timeline-year-label::before {
-            content: '';
-            position: absolute;
-            left: -20px;
-            top: 50%;
-            transform: translateY(-50%);
-            width: 14px;
-            height: 14px;
-            background: #FF66C4;
-            border: 3px solid white;
-            border-radius: 50%;
-            box-shadow: 0 0 0 3px #FF66C4;
-        }
-
-        .timeline-items {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-        }
-
-        .timeline-card {
-            border: 2px solid #eee;
-            border-radius: 8px;
-            padding: 18px 20px;
-            transition: border-color 0.3s, transform 0.3s;
-            background: #fafafa;
-        }
-
-        .timeline-card:hover {
-            border-color: #FF66C4;
-            transform: translateX(5px);
-        }
-
-        .timeline-card .press-source {
-            font-size: 0.75em;
-            font-weight: bold;
-            text-transform: uppercase;
-            color: #FF66C4;
-            letter-spacing: 1px;
-            margin-bottom: 6px;
-        }
-
-        .timeline-card h4 {
-            color: #333;
-            font-size: 1em;
-            margin-bottom: 6px;
-            line-height: 1.4;
-        }
-
-        .timeline-card p {
-            color: #888;
-            font-size: 0.85em;
-            margin-bottom: 10px;
-        }
-
-        .timeline-card a {
-            color: #FF66C4;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 0.9em;
-        }
-
-        .timeline-card a:hover {
-            text-decoration: underline;
-        }
-
-        .timeline-card.featured {
-            border-color: #FFD93B;
-            background: #fffdf0;
-        }
-
-        .timeline-card.accomplishment {
-            border-color: #FF66C4;
-            background: #fff0f7;
-            border-left: 4px solid #FF66C4;
-        }
-
-        footer {
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 30px 20px;
-            margin-top: 50px;
-        }
-
-        footer p {
-            margin: 10px 0;
-        }
-
-        .footer-links {
-            margin: 20px 0;
-        }
-
-        .footer-links a {
-            color: #FFD93B;
-            text-decoration: none;
-            margin: 0 15px;
-            transition: color 0.3s;
-        }
-
-        .footer-links a:hover {
-            color: #FF66C4;
-        }
-
-        .copyright {
-            border-top: 1px solid #555;
-            padding-top: 20px;
-            margin-top: 20px;
-            font-size: 0.9em;
-        }
-
-        @media (max-width: 768px) {
-            header h1 {
-                font-size: 1.8em;
-            }
-
-            nav a {
-                display: block;
-                margin: 10px 0;
-            }
-
-            .coach-content {
-                flex-direction: column;
-            }
-
-            .coach-image img {
-                width: 100%;
-                max-width: 300px;
-            }
-
-            .coach-section, .press-section {
-                padding: 25px;
-            }
-        }
-    </style>
-</head>
-<body>
-    <header>
-        <h1>🥎 Christina Gabriele | CT Softball Pitching Coach</h1>
-        <p>Semi-private lessons, clinics, and elite-level instruction</p>
-    </header>
-
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="coach.html">Meet Your Coach</a>
-        <a href="clinics.html">My Clinics</a>
-        <a href="events.html">Events</a>
-        <a href="register.html">Register</a>
-        <a href="calendar.html">📅 Calendar 🔒</a>
-    </nav>
-
-    <div class="container">
-        <div class="coach-section">
-            <div class="coach-content">
-                <div class="coach-text">
-                    <h2>Meet Your Coach: Christina Gabriele</h2>
-                    <p>Christina is an accomplished pitcher with over a decade of coaching experience and a proven track record of developing elite-level talent. Currently serving as Associate Head Coach at Mitchell College, she brings expert knowledge of pitching mechanics, injury prevention, and the competitive strategies that create winning athletes.</p>
-                </div>
-                <div class="coach-image">
-                    <img src="coach-headshot.jpg" alt="Coach Christina Gabriele" ondragstart="return false;">
-                </div>
-            </div>
-        </div>
-
-        <div class="press-section">
-            <h2>📰 Accomplishments & In The Press</h2>
             <div class="timeline">
 
                 <!-- Current -->
@@ -333,28 +12,34 @@
                     </div>
                 </div>
 
-                <!-- 2013 -->
+                <!-- George Mason -->
                 <div class="timeline-year">
-                    <div class="timeline-year-label">2013</div>
-                    <div class="timeline-items">
-                        <div class="timeline-card">
-                            <div class="press-source">George Mason Athletics</div>
-                            <h4>Rookie Profiles: Christina Gabriele</h4>
-                            <p>Freshman season preview — pitcher/first baseman from Miami, FL</p>
-                            <a href="https://gomason.com/news/2013/1/30/206178461.aspx" target="_blank">Read More →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 2012 -->
-                <div class="timeline-year">
-                    <div class="timeline-year-label">2012</div>
+                    <div class="timeline-year-label">2012–2015</div>
                     <div class="timeline-items">
                         <div class="timeline-card accomplishment">
                             <div class="press-source">George Mason University</div>
                             <h4>Full Scholarship — D1 Pitcher/First Baseman</h4>
                             <p>2014 season: 2.92 ERA, 42 strikeouts, .227 opposing batting average. Graduated early Magna Cum Laude.</p>
                         </div>
+                        <div class="timeline-card">
+                            <div class="press-source">George Mason Athletics</div>
+                            <h4>Rookie Profiles: Christina Gabriele</h4>
+                            <p>Freshman season preview — pitcher/first baseman from Miami, FL</p>
+                            <a href="https://gomason.com/news/2013/1/30/206178461.aspx" target="_blank">Read More →</a>
+                        </div>
+                        <div class="timeline-card">
+                            <div class="press-source">George Mason Athletics</div>
+                            <h4>Softball Signs Three Players to National Letters of Intent</h4>
+                            <p>Christina commits to George Mason University on a full scholarship</p>
+                            <a href="https://gomason.com/news/2011/11/22/205337491.aspx" target="_blank">Read More →</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Gulliver Prep -->
+                <div class="timeline-year">
+                    <div class="timeline-year-label">2008–2012</div>
+                    <div class="timeline-items">
                         <div class="timeline-card accomplishment">
                             <div class="press-source">Gulliver Prep — Career Stats</div>
                             <h4>All-Time Wins Leader: 44-4 Record, 322 Strikeouts</h4>
@@ -377,19 +62,6 @@
                             <h4>Class 4A All-Florida High School Softball Team</h4>
                             <p>Named Florida Dairy Farmers Class 4A Player of the Year</p>
                             <a href="https://www.capecoralbreeze.com/sports/local-sports/2012/07/06/class-4a-all-florida-high-school-softball-teams/" target="_blank">Read More →</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- 2011 -->
-                <div class="timeline-year">
-                    <div class="timeline-year-label">2011</div>
-                    <div class="timeline-items">
-                        <div class="timeline-card">
-                            <div class="press-source">George Mason Athletics</div>
-                            <h4>Softball Signs Three Players to National Letters of Intent</h4>
-                            <p>Christina commits to George Mason University on a full scholarship</p>
-                            <a href="https://gomason.com/news/2011/11/22/205337491.aspx" target="_blank">Read More →</a>
                         </div>
                         <div class="timeline-card">
                             <div class="press-source">MaxPreps</div>
@@ -414,21 +86,3 @@
                 </div>
 
             </div>
-        </div>
-    </div>
-
-    <footer>
-        <p><strong>Ready to Perfect Your Pitch?</strong></p>
-        <p>Contact Coach Christina: <a href="mailto:gabriele_c@mitchell.edu" style="color: #FFD93B;">gabriele_c@mitchell.edu</a></p>
-        <div class="footer-links">
-            <a href="register.html">Register</a>
-            <a href="mailto:gabriele_c@mitchell.edu">Contact Us</a>
-            <a href="terms-of-use.html">Terms of Use</a>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2026 Christina Gabriele. All rights reserved.</p>
-            <p>CT Softball Pitching Coach — Semi-private lessons, clinics, and elite-level instruction</p>
-        </div>
-    </footer>
-</body>
-</html>
