@@ -48,7 +48,7 @@
         }
 
         nav {
-            background-color: #333;
+            background-color: #FF66C4;
             padding: 15px 0;
             text-align: center;
             position: sticky;
@@ -66,6 +66,17 @@
 
         nav a:hover {
             color: #FFD93B;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         .container {
@@ -390,21 +401,139 @@
         }
 
         @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            header {
+                padding: 28px 16px;
+            }
+
             header h1 {
-                font-size: 1.8em;
+                font-size: clamp(1.45rem, 7vw, 1.8em);
+                line-height: 1.15;
+                max-width: 360px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            header p {
+                font-size: 1rem;
+                max-width: 340px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            nav {
+                position: sticky;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                align-items: center;
+                padding: 10px 12px;
+            }
+
+            .menu-toggle {
+                display: inline-flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 5px;
+                width: 44px;
+                height: 40px;
+                padding: 0 10px;
+                border: 1px solid rgba(255,255,255,0.3);
+                border-radius: 8px;
+                background: rgba(255,255,255,0.08);
+                cursor: pointer;
+            }
+
+            .menu-toggle span {
+                display: block;
+                height: 2px;
+                width: 100%;
+                background: white;
+                border-radius: 2px;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 8px;
+                padding-top: 10px;
+            }
+
+            nav.open .nav-links {
+                display: flex;
             }
 
             nav a {
                 display: block;
-                margin: 10px 0;
+                width: 100%;
+                margin: 0;
+                padding: 10px;
+                border-radius: 8px;
+                background: rgba(255,255,255,0.08);
+                font-size: 0.95rem;
+                line-height: 1.2;
+            }
+
+            .container {
+                padding: 30px 16px;
+            }
+
+            .form-header {
+                margin-bottom: 28px;
+            }
+
+            .form-header h2 {
+                font-size: 1.75em;
+                line-height: 1.2;
             }
 
             .form-row {
                 grid-template-columns: 1fr;
+                gap: 0;
             }
 
             .registration-form {
-                padding: 25px;
+                padding: 24px 18px;
+            }
+
+            .form-section {
+                margin-bottom: 24px;
+                padding-bottom: 22px;
+            }
+
+            .session-card {
+                padding: 15px;
+            }
+
+            .session-card label,
+            .checkbox-group label {
+                gap: 10px;
+            }
+
+            .session-card input[type="checkbox"],
+            .checkbox-group input[type="checkbox"] {
+                margin-right: 0;
+                flex-shrink: 0;
+            }
+
+            .btn-submit {
+                padding: 15px 18px;
+                font-size: 1.08em;
+            }
+
+            .footer-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .footer-links a {
+                margin: 0;
             }
         }
     </style>
@@ -416,12 +545,19 @@
     </header>
 
     <nav>
-        <a href="index.html">Home</a>
-        <a href="coach.html">Meet Your Coach</a>
-        <a href="clinics.html">My Clinics</a>
-        <a href="events.html">Events</a>
-        <a href="register.html">Register</a>
-        <a href="calendar.html">📅 Calendar 🔒</a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" onclick="toggleMenu(this)">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="coach.html">Meet Your Coach</a>
+            <a href="clinics.html">My Clinics</a>
+            <a href="events.html">Events</a>
+            <a href="register.html">Register</a>
+            <a href="calendar.html">📅 Calendar 🔒</a>
+        </div>
     </nav>
 
     <div class="container">
@@ -648,6 +784,12 @@
     </footer>
 
     <script>
+        function toggleMenu(button) {
+            const nav = button.closest('nav');
+            const isOpen = nav.classList.toggle('open');
+            button.setAttribute('aria-expanded', isOpen);
+        }
+
         // Google Sheets Apps Script Web App URL
         const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzN9pqirNwgF4igR-yEG-7LY1L2oN8wLZTHptfbym1fkbHt3XXok1nBWozmkqGumosq/exec';
 

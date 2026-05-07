@@ -37,7 +37,7 @@
         }
 
         nav {
-            background-color: #333;
+            background-color: #FF66C4;
             padding: 15px 0;
             text-align: center;
             position: sticky;
@@ -55,6 +55,17 @@
 
         nav a:hover {
             color: #FFD700;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
         }
 
         .container {
@@ -116,6 +127,98 @@
             margin-top: 20px;
             font-size: 0.9em;
         }
+
+        @media (max-width: 768px) {
+            body {
+                overflow-x: hidden;
+            }
+
+            header {
+                padding: 28px 16px;
+            }
+
+            header h1 {
+                font-size: clamp(1.45rem, 7vw, 1.8em);
+                line-height: 1.15;
+                max-width: 360px;
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            header p {
+                font-size: 1rem;
+            }
+
+            nav {
+                position: sticky;
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: flex-end;
+                align-items: center;
+                padding: 10px 12px;
+            }
+
+            .menu-toggle {
+                display: inline-flex;
+                flex-direction: column;
+                justify-content: center;
+                gap: 5px;
+                width: 44px;
+                height: 40px;
+                padding: 0 10px;
+                border: 1px solid rgba(255,255,255,0.3);
+                border-radius: 8px;
+                background: rgba(255,255,255,0.08);
+                cursor: pointer;
+            }
+
+            .menu-toggle span {
+                display: block;
+                height: 2px;
+                width: 100%;
+                background: white;
+                border-radius: 2px;
+            }
+
+            .nav-links {
+                display: none;
+                width: 100%;
+                flex-direction: column;
+                gap: 8px;
+                padding-top: 10px;
+            }
+
+            nav.open .nav-links {
+                display: flex;
+            }
+
+            nav a {
+                display: block;
+                width: 100%;
+                margin: 0;
+                padding: 10px;
+                border-radius: 8px;
+                background: rgba(255,255,255,0.08);
+                font-size: 0.95rem;
+                line-height: 1.2;
+            }
+
+            .container {
+                margin-top: 0;
+                margin-bottom: 0;
+                padding: 30px 18px;
+                border-radius: 0;
+            }
+
+            h2 {
+                font-size: 1.4em;
+                line-height: 1.25;
+            }
+
+            h3 {
+                font-size: 1.08em;
+            }
+        }
     </style>
 </head>
 <body>
@@ -125,10 +228,17 @@
     </header>
 
     <nav>
-        <a href="index.html">Home</a>
-        <a href="index.html#coach">Meet Your Coach</a>
-        <a href="index.html#clinics">Our Clinics</a>
-        <a href="terms-of-use.html">Terms of Use</a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" onclick="toggleMenu(this)">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#coach">Meet Your Coach</a>
+            <a href="index.html#clinics">Our Clinics</a>
+            <a href="terms-of-use.html">Terms of Use</a>
+        </div>
     </nav>
 
     <div class="container">
@@ -226,6 +336,12 @@
     </footer>
 
     <script>
+        function toggleMenu(button) {
+            const nav = button.closest('nav');
+            const isOpen = nav.classList.toggle('open');
+            button.setAttribute('aria-expanded', isOpen);
+        }
+
         // Disable right-click context menu
         document.addEventListener('contextmenu', (e) => {
             e.preventDefault();

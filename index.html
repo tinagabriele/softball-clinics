@@ -37,7 +37,7 @@
         }
         header p { font-size: 1.2em; opacity: 0.95; }
         nav {
-            background-color: #333;
+            background-color: #FF66C4;
             padding: 15px 0;
             text-align: center;
             position: sticky;
@@ -52,6 +52,8 @@
             transition: color 0.3s;
         }
         nav a.active, nav a:hover { color: #FFD93B; }
+        .menu-toggle { display: none; }
+        .nav-links { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; }
         .hero {
             text-align: center;
             padding: 80px 20px;
@@ -118,12 +120,32 @@
         .footer-links a:hover { color: #FF66C4; }
         .copyright { border-top: 1px solid #555; padding-top: 20px; margin-top: 20px; font-size: 0.9em; }
         @media (max-width: 768px) {
-            header h1 { font-size: 1.8em; }
-            nav a { display: block; margin: 10px 0; }
-            .hero h2 { font-size: 1.8em; }
-            .hero-btn { padding: 15px 35px; font-size: 1.1em; }
+            body { overflow-x: hidden; }
+            header { padding: 28px 16px; }
+            header h1 { font-size: clamp(1.45rem, 7vw, 1.8em); line-height: 1.15; max-width: 360px; margin-left: auto; margin-right: auto; }
+            header p { font-size: 1rem; max-width: 340px; margin-left: auto; margin-right: auto; }
+            nav { position: sticky; display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; padding: 10px 12px; }
+            .menu-toggle { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 40px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; background: rgba(255,255,255,0.08); cursor: pointer; }
+            .menu-toggle span { display: block; height: 2px; width: 100%; background: white; border-radius: 2px; }
+            .nav-links { display: none; width: 100%; flex-direction: column; gap: 8px; padding-top: 10px; }
+            nav.open .nav-links { display: flex; }
+            nav a { display: block; width: 100%; margin: 0; padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.08); font-size: 0.95rem; line-height: 1.2; }
+            .hero { padding: 48px 18px; }
+            .hero h2 { font-size: clamp(1.8rem, 8vw, 2.2rem); line-height: 1.15; }
+            .hero p { font-size: 1.02em; }
+            .hero-btn { width: 100%; max-width: 320px; padding: 15px 22px; font-size: 1.05em; }
+            .why-section, .events-preview { padding: 42px 18px; }
+            .why-section h2, .events-preview h2 { font-size: 1.7em; line-height: 1.2; }
             .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .stat-item { padding: 20px 12px; }
             .events-preview-card { flex-direction: column; text-align: center; gap: 15px; }
+            .events-preview-card { padding: 22px 18px; border-left-width: 0; border-top: 6px solid #FF66C4; border-radius: 10px; }
+            .events-btn { width: 100%; max-width: 260px; }
+            .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
+            .footer-links a { margin: 0; }
+        }
+        @media (max-width: 480px) {
+            .stats-bar { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -133,12 +155,19 @@
         <p>Semi-private lessons, clinics, and elite-level instruction</p>
     </header>
     <nav>
-        <a href="index.html" class="active">Home</a>
-        <a href="coach.html">Meet Your Coach</a>
-        <a href="clinics.html">My Clinics</a>
-        <a href="events.html">Events</a>
-        <a href="register.html">Register</a>
-        <a href="calendar.html">📅 Calendar 🔒</a>
+        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" onclick="toggleMenu(this)">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+        <div class="nav-links">
+            <a href="index.html" class="active">Home</a>
+            <a href="coach.html">Meet Your Coach</a>
+            <a href="clinics.html">My Clinics</a>
+            <a href="events.html">Events</a>
+            <a href="register.html">Register</a>
+            <a href="calendar.html">📅 Calendar 🔒</a>
+        </div>
     </nav>
     <section class="hero" id="home">
         <h2>Take Your Pitching to the <span>Next Level</span></h2>
@@ -202,6 +231,12 @@
         </div>
     </footer>
     <script>
+        function toggleMenu(button) {
+            const nav = button.closest('nav');
+            const isOpen = nav.classList.toggle('open');
+            button.setAttribute('aria-expanded', isOpen);
+        }
+
         document.addEventListener('contextmenu', (e) => { e.preventDefault(); return false; });
         document.addEventListener('selectstart', (e) => { e.preventDefault(); return false; });
         document.addEventListener('dragstart', (e) => { e.preventDefault(); return false; });
