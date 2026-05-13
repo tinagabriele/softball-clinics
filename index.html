@@ -24,20 +24,21 @@
             -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
         }
         header {
-            background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%);
+            background: #FA62C5 url('assets/pitching-header-banner.png') left center / cover no-repeat;
             color: white;
-            padding: 40px 20px;
+            padding: 88px 20px;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
         header h1 {
             font-size: 2.5em;
             margin-bottom: 10px;
+            margin-left: 34%;
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
-        header p { font-size: 1.2em; opacity: 0.95; }
+        header p { font-size: 1.2em; opacity: 0.95; margin-left: 34%; }
         nav {
-            background-color: #FF66C4;
+            background-color: #333;
             padding: 15px 0;
             text-align: center;
             position: sticky;
@@ -150,7 +151,7 @@
         .copyright { border-top: 1px solid #555; padding-top: 20px; margin-top: 20px; font-size: 0.9em; }
         @media (max-width: 768px) {
             body { overflow-x: hidden; }
-            header { padding: 28px 16px; }
+            header { padding: 58px 16px; background-size: cover; background-position: left center; }
             header h1 { font-size: clamp(1.45rem, 7vw, 1.8em); line-height: 1.15; max-width: 360px; margin-left: auto; margin-right: auto; }
             header p { font-size: 1rem; max-width: 340px; margin-left: auto; margin-right: auto; }
             nav { position: sticky; display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; padding: 10px 12px; }
@@ -182,8 +183,8 @@
 </head>
 <body>
     <header>
-        <h1>🥎 Christina Gabriele | CT Softball Pitching Coach</h1>
-        <p>Semi-private lessons, clinics, and elite-level instruction</p>
+        <h1>Christina Gabriele | CT Softball Pitching Coach</h1>
+        <p>Clinics and semi-private lessons</p>
     </header>
     <nav>
         <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" onclick="toggleMenu(this)">
