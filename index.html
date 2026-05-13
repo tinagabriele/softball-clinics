@@ -110,12 +110,21 @@
             box-shadow: 0 8px 25px rgba(255, 102, 196, 0.4);
         }
         .why-section { background: #fff0f7; padding: 60px 20px; }
-        .why-section h2 { text-align: center; color: #FF66C4; font-size: 2em; margin-bottom: 15px; }
-        .why-section .subtitle { text-align: center; color: #666; font-size: 1.1em; max-width: 600px; margin: 0 auto 40px;}
+        .why-content {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 420px;
+            align-items: center;
+            gap: 40px;
+            max-width: 1120px;
+            margin: 0 auto;
+        }
+        .why-copy { text-align: center; }
+        .why-copy h2 { color: #FF66C4; font-size: 2em; margin-bottom: 15px; }
+        .why-copy .subtitle { color: #666; font-size: 1.1em; margin-bottom: 32px; }
         .stats-bar {
             display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 20px; max-width: 900px; margin: 0 auto 40px;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 18px; margin: 0 0 28px;
         }
         .stat-item {
             text-align: center; background: white; padding: 25px 15px; border-radius: 10px;
@@ -124,7 +133,18 @@
         .stat-item:hover { transform: translateY(-5px); }
         .stat-number { font-size: 2.25em; font-weight: bold; background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 5px; }
         .stat-label { color: #FF66C4; font-size: 0.98em; font-weight: bold; }
-        .why-text { max-width: 700px; margin: 0 auto; text-align: center; color: #555; font-size: 1.07em; line-height: 1.8; }
+        .why-text { color: #555; font-size: 1.07em; line-height: 1.8; }
+        .why-image {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+            overflow: hidden;
+        }
+        .why-image img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
         .events-preview { background: white; padding: 60px 20px; }
         .events-preview h2 { text-align: center; color: #FF66C4; font-size: 2em; margin-bottom: 30px; }
         .events-preview-card {
@@ -167,8 +187,12 @@
             .hero p { font-size: 1.02em; }
             .hero-btn { width: 100%; max-width: 320px; padding: 15px 22px; font-size: 1.05em; }
             .why-section, .events-preview { padding: 42px 18px; }
-            .why-section h2, .events-preview h2 { font-size: 1.7em; line-height: 1.2; }
+            .why-content { grid-template-columns: 1fr; gap: 28px; }
+            .why-copy { text-align: center; }
+            .why-copy h2, .events-preview h2 { font-size: 1.7em; line-height: 1.2; }
+            .why-copy .subtitle { margin-bottom: 26px; }
             .stats-bar { grid-template-columns: repeat(2, 1fr); }
+            .why-image { max-width: 420px; margin: 0 auto; }
             .stat-item { padding: 20px 12px; }
             .events-preview-card { flex-direction: column; text-align: center; gap: 15px; }
             .events-preview-card { padding: 22px 18px; border-left-width: 0; border-top: 6px solid #FF66C4; border-radius: 10px; }
@@ -217,27 +241,34 @@
         <a href="register.html" class="hero-btn">Register for a Clinic →</a>
     </section>
     <section class="why-section">
-        <h2>Why Train With Me</h2>
-        <p class="subtitle">From Florida to Virginia to Connecticut, I've worked with athletes of all ages and skill levels, from early development to competitive play.</p>
-        <div class="stats-bar">
-            <div class="stat-item">
-                <div class="stat-number">10+</div>
-                <div class="stat-label">Years Coaching</div>
+        <div class="why-content">
+            <div class="why-copy">
+                <h2>Why Train With Me</h2>
+                <p class="subtitle">From Florida to Virginia to Connecticut, I've worked with athletes of all ages and skill levels, from early development to competitive play.</p>
+                <div class="stats-bar">
+                    <div class="stat-item">
+                        <div class="stat-number">10+</div>
+                        <div class="stat-label">Years Coaching</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">3x</div>
+                        <div class="stat-label">State Champion</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">400+</div>
+                        <div class="stat-label">Confirmed Career Strikeouts</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">D1</div>
+                        <div class="stat-label">Full Scholarship</div>
+                    </div>
+                </div>
+                <p class="why-text">My coaching is built on clear instruction, strong mechanics, and honest feedback. I want athletes to understand what they are doing, why it works, and how to make adjustments with confidence.</p>
             </div>
-            <div class="stat-item">
-                <div class="stat-number">3x</div>
-                <div class="stat-label">State Champion</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">400+</div>
-                <div class="stat-label">Confirmed Career Strikeouts</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">D1</div>
-                <div class="stat-label">Full Scholarship</div>
+            <div class="why-image">
+                <img src="assets/miami-herald-gabriele.png" alt="Miami Herald article featuring Christina Gabriele sending Gulliver to the final four">
             </div>
         </div>
-        <p class="why-text">My coaching is built on clear instruction, strong mechanics, and honest feedback. I want athletes to understand what they are doing, why it works, and how to make adjustments with confidence.</p>
     </section>
     <section style="background: white; padding: 60px 20px;">
         <div style="max-width: 800px; margin: 0 auto;">
