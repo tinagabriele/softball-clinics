@@ -55,7 +55,7 @@
         .menu-toggle { display: none; }
         .nav-links { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; }
         .social-banner {
-            background: #fff0f7;
+            background: white;
             padding: 18px 20px;
             text-align: center;
         }
@@ -63,18 +63,20 @@
             display: inline-flex;
             align-items: center;
             gap: 10px;
-            background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%);
+            background: #FF66C4;
             color: white;
             padding: 12px 24px;
+            border: 2px solid rgba(255,255,255,0.7);
             border-radius: 999px;
             text-decoration: none;
             font-weight: bold;
-            box-shadow: 0 4px 15px rgba(255, 102, 196, 0.3);
-            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(255, 102, 196, 0.22);
+            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
         }
         .instagram-button:hover {
             transform: translateY(-2px);
-            box-shadow: 0 8px 22px rgba(255, 102, 196, 0.4);
+            background: #E84FAF;
+            box-shadow: 0 8px 22px rgba(255, 102, 196, 0.3);
         }
         .instagram-button svg {
             width: 22px;
