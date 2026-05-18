@@ -37,6 +37,19 @@
             text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
         header p { font-size: 1.2em; opacity: 0.95; margin-left: 34%; }
+        .header-location {
+            display: inline-block;
+            margin-top: 10px;
+            margin-left: 34%;
+            padding: 8px 18px;
+            border-radius: 999px;
+            background: rgba(51, 51, 51, 0.9);
+            color: white;
+            font-weight: bold;
+            font-size: 1.05em;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+        }
         nav {
             background-color: #333;
             padding: 15px 0;
@@ -174,6 +187,7 @@
             header { padding: 58px 16px; background-size: cover; background-position: left center; }
             header h1 { font-size: clamp(1.45rem, 7vw, 1.8em); line-height: 1.15; max-width: 360px; margin-left: auto; margin-right: auto; }
             header p { font-size: 1rem; max-width: 340px; margin-left: auto; margin-right: auto; }
+            .header-location { margin-left: auto; margin-right: auto; font-size: 0.95rem; }
             nav { position: sticky; display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; padding: 10px 12px; }
             .menu-toggle { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 40px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; background: rgba(255,255,255,0.08); cursor: pointer; }
             .menu-toggle span { display: block; height: 2px; width: 100%; background: white; border-radius: 2px; }
@@ -209,6 +223,7 @@
     <header>
         <h1>Christina Gabriele | CT Softball Pitching Coach</h1>
         <p>Clinics and semi-private lessons</p>
+        <span class="header-location">📍 Southeastern CT</span>
     </header>
     <nav>
         <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" onclick="toggleMenu(this)">
