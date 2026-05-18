@@ -93,72 +93,6 @@
             margin: 0 auto;
         }
 
-        .password-gate {
-            text-align: center;
-            background: white;
-            padding: 60px 40px;
-            border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            max-width: 450px;
-            margin: 60px auto;
-        }
-
-        .password-gate h3 {
-            color: #FF66C4;
-            font-size: 1.5em;
-            margin-bottom: 10px;
-        }
-
-        .password-gate p {
-            color: #666;
-            margin-bottom: 25px;
-        }
-
-        .password-gate input {
-            width: 100%;
-            padding: 12px 18px;
-            font-size: 1em;
-            border: 2px solid #eee;
-            border-radius: 8px;
-            margin-bottom: 15px;
-            transition: border-color 0.3s;
-        }
-
-        .password-gate input:focus {
-            outline: none;
-            border-color: #FF66C4;
-        }
-
-        .password-gate button {
-            display: inline-block;
-            background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%);
-            color: white;
-            padding: 12px 40px;
-            border: none;
-            border-radius: 8px;
-            font-size: 1.1em;
-            font-weight: bold;
-            cursor: pointer;
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-        }
-
-        .password-gate button:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 4px 15px rgba(255, 102, 196, 0.4);
-        }
-
-        .password-error {
-            color: #e74c3c;
-            font-size: 0.9em;
-            margin-top: 10px;
-            display: none;
-        }
-
-        .calendar-content {
-            display: none;
-        }
-
         .calendar-wrapper {
             background: white;
             border-radius: 10px;
@@ -290,17 +224,6 @@
                 padding: 30px 16px;
             }
 
-            .password-gate {
-                margin: 24px auto;
-                padding: 36px 18px;
-            }
-
-            .password-gate button {
-                width: 100%;
-                padding-left: 18px;
-                padding-right: 18px;
-            }
-
             .page-header h2 {
                 font-size: 1.75em;
                 line-height: 1.2;
@@ -345,28 +268,17 @@
             <a href="clinics.html">My Clinics</a>
             <a href="events.html">Events</a>
             <a href="register.html">Register</a>
-            <a href="calendar.html">📅 Calendar 🔒</a>
+            <a href="calendar.html">Calendar</a>
         </div>
     </nav>
 
     <div class="container">
-        <div class="password-gate" id="passwordGate">
-            <h3>🔒 Private Calendar</h3>
-            <p>This calendar is for Coach Christina's personal use. Enter the password to view.</p>
-            <input type="password" id="passwordInput" placeholder="Enter password" onkeypress="if(event.key==='Enter') checkPassword()">
-            <br>
-            <button onclick="checkPassword()">Unlock Calendar</button>
-            <p class="password-error" id="errorMsg">❌ Incorrect password. Try again.</p>
+        <div class="page-header">
+            <h2>Softball Calendar</h2>
+            <p>Clinics, events, and semi-private lesson availability in one place.</p>
         </div>
-
-        <div class="calendar-content" id="calendarContent">
-            <div class="page-header">
-                <h2>📅 My Softball Calendar</h2>
-                <p>All clinics, events, and coaching commitments in one place.</p>
-            </div>
-            <div class="calendar-wrapper">
-                <iframe src="https://calendar.google.com/calendar/embed?src=fdc599cf7a21dc97d24df47826f7535cd2c438ef5a649c0dc7cf3a0418b17b46%40group.calendar.google.com&ctz=America%2FNew_York"></iframe>
-            </div>
+        <div class="calendar-wrapper">
+            <iframe src="https://calendar.google.com/calendar/embed?src=fdc599cf7a21dc97d24df47826f7535cd2c438ef5a649c0dc7cf3a0418b17b46%40group.calendar.google.com&ctz=America%2FNew_York"></iframe>
         </div>
     </div>
 
@@ -391,16 +303,6 @@
             const nav = button.closest('nav');
             const isOpen = nav.classList.toggle('open');
             button.setAttribute('aria-expanded', isOpen);
-        }
-
-        function checkPassword() {
-            var input = document.getElementById('passwordInput').value;
-            if (input === 'Glitter81!') {
-                document.getElementById('passwordGate').style.display = 'none';
-                document.getElementById('calendarContent').style.display = 'block';
-            } else {
-                document.getElementById('errorMsg').style.display = 'block';
-            }
         }
     </script>
 </body>
