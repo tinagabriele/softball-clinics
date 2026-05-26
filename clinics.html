@@ -173,6 +173,16 @@
             box-shadow: 0 8px 25px rgba(0,0,0,0.15);
         }
 
+        .clinic-card.cancelled {
+            opacity: 0.58;
+            filter: grayscale(100%);
+        }
+
+        .clinic-card.cancelled:hover {
+            transform: none;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
         .clinic-card-header {
             background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%);
             color: white;
@@ -182,6 +192,17 @@
 
         .clinic-card-header h3 {
             font-size: 1.5em;
+        }
+
+        .cancelled-badge {
+            display: inline-block;
+            background: #333;
+            color: white;
+            padding: 5px 14px;
+            border-radius: 999px;
+            font-size: 0.85em;
+            font-weight: bold;
+            margin-top: 10px;
         }
 
         .clinic-card-body {
@@ -529,12 +550,14 @@
         </div>
 
         <div class="clinics-grid">
-            <div class="clinic-card">
+            <div class="clinic-card cancelled">
                 <div class="clinic-card-header">
                     <h3>🔥 Fastball Fundamentals</h3>
+                    <span class="cancelled-badge">Cancelled</span>
                 </div>
                 <div class="clinic-card-body">
                     <h4>Build a Dominant Fastball</h4>
+                    <p><strong>This clinic has been cancelled.</strong></p>
                     <p>The fastball is the foundation of everything you do in the circle. This clinic goes beyond mechanics — it's about building a stronger arm, smarter warm-up, and real velocity.</p>
                     <div class="clinic-details">
                         <p><strong>📅 Date:</strong> Saturday, May 30, 2026 • 10:00 AM – 12:00 PM</p>

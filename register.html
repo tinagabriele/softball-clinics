@@ -651,20 +651,6 @@
                 <p style="color: #666; margin-bottom: 15px; font-size: 0.95em;">Each session is limited to <strong>6 athletes</strong>. If a session is full, you'll be added to the waitlist and notified if a spot opens.</p>
 
                 <div id="sessions-container">
-                    <div class="session-card" id="card-fastball">
-                        <label>
-                            <input type="checkbox" name="session_fastball" value="Fastball Fundamentals - May 30">
-                            <div class="session-info">
-                                <div class="session-title">🔥 Fastball Fundamentals</div>
-                                <div class="session-details">
-                                    Saturday, May 30, 2026 • 10:00 AM – 12:00 PM<br>
-                                    All levels welcome
-                                </div>
-                                <span class="spots-remaining spots-available" id="spots-fastball">Loading spots...</span>
-                            </div>
-                        </label>
-                    </div>
-
                     <div class="session-card" id="card-curveball">
                         <label>
                             <input type="checkbox" name="session_curveball" value="Curveball Craft - June 13">
@@ -725,7 +711,6 @@
             <div class="form-section">
                 <h3>💰 Pricing & Payment</h3>
                 <div class="payment-info">
-                    <p><strong>🔥 Fastball Fundamentals (May 30):</strong> $65/player — <em>introductory pricing!</em></p>
                     <p><strong>🌀 Curveball Craft & ⬆️ Riseball Rundown:</strong> $75/player</p>
                     <p><strong>🎯 Mini-Clinic:</strong> $50/player for 2 athletes per hour</p>
                     <p style="margin-top: 12px;">Full clinics are 2 hours and capped at 6 athletes. Mini-clinics are 1 hour and capped at 2 athletes.</p>
@@ -804,11 +789,9 @@
                 const response = await fetch(GOOGLE_SCRIPT_URL + '?action=getSpots');
                 const data = await response.json();
 
-                updateSpotDisplay('fastball', data.fastball || 0);
                 updateSpotDisplay('curveball', data.curveball || 0);
                 updateSpotDisplay('riseball', data.riseball || 0);
             } catch (error) {
-                document.getElementById('spots-fastball').textContent = 'Spots available';
                 document.getElementById('spots-curveball').textContent = 'Spots available';
                 document.getElementById('spots-riseball').textContent = 'Spots available';
             }
@@ -843,7 +826,6 @@
             const messageDiv = document.getElementById('form-message');
 
             const sessions = [];
-            if (document.querySelector('input[name="session_fastball"]').checked) sessions.push('Fastball Fundamentals - May 30');
             if (document.querySelector('input[name="session_curveball"]').checked) sessions.push('Curveball Craft - June 13');
             if (document.querySelector('input[name="session_riseball"]').checked) sessions.push('Riseball Rundown - August 22');
             if (document.querySelector('input[name="session_private"]').checked) sessions.push('Mini-Clinic');
