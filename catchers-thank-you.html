@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>You're Registered | Catchers Clinic</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #f5f5f5;
+            background: #0f0f10;
+        }
+
+        .page-wrap {
+            min-height: 100vh;
+            padding: 44px 20px;
+            background:
+                radial-gradient(circle at top left, rgba(217,4,41,0.22), transparent 34%),
+                linear-gradient(135deg, #111 0%, #2a2a2c 58%, #a4161a 100%);
+        }
+
+        .thank-you-card {
+            max-width: 880px;
+            margin: 0 auto;
+            background: #18181a;
+            border: 1px solid #333;
+            border-top: 6px solid #d90429;
+            border-radius: 8px;
+            padding: 56px 42px;
+            text-align: center;
+            box-shadow: 0 18px 42px rgba(0,0,0,0.32);
+        }
+
+        .catcher-icon {
+            width: 150px;
+            height: 150px;
+            object-fit: contain;
+            margin-bottom: 22px;
+            filter: drop-shadow(0 12px 18px rgba(0,0,0,0.34));
+        }
+
+        h1 {
+            color: white;
+            font-size: 2.55em;
+            line-height: 1.12;
+            margin-bottom: 16px;
+        }
+
+        .intro {
+            color: #d9d9d9;
+            font-size: 1.18em;
+            max-width: 680px;
+            margin: 0 auto 30px;
+        }
+
+        .highlight {
+            color: #ff3347;
+            font-weight: bold;
+        }
+
+        .next-steps {
+            background: #f5f5f5;
+            color: #222;
+            border-radius: 8px;
+            padding: 28px;
+            margin: 34px 0;
+            text-align: left;
+        }
+
+        .next-steps h2 {
+            color: #a4161a;
+            font-size: 1.55em;
+            text-align: center;
+            margin-bottom: 18px;
+        }
+
+        .next-steps ul {
+            list-style: none;
+        }
+
+        .next-steps li {
+            padding: 9px 0;
+            color: #333;
+            font-size: 1.02em;
+        }
+
+        .next-steps li::before {
+            content: "✓ ";
+            color: #d90429;
+            font-weight: bold;
+        }
+
+        .btn {
+            display: inline-block;
+            color: white;
+            background: #d90429;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            padding: 14px 32px;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .btn:hover {
+            background: #ff3347;
+            transform: translateY(-2px);
+        }
+
+        .contact-note {
+            color: #cfcfcf;
+            margin-top: 28px;
+        }
+
+        .contact-note a {
+            color: #ff3347;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .contact-note a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            .page-wrap {
+                padding: 26px 14px;
+            }
+
+            .thank-you-card {
+                padding: 34px 20px;
+            }
+
+            .catcher-icon {
+                width: 118px;
+                height: 118px;
+            }
+
+            h1 {
+                font-size: 2em;
+            }
+
+            .intro {
+                font-size: 1.04em;
+            }
+
+            .next-steps {
+                padding: 22px 18px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page-wrap">
+        <section class="thank-you-card">
+            <img class="catcher-icon" src="assets/catcheroutline.png" alt="" aria-hidden="true">
+            <h1>You're Registered!</h1>
+            <p class="intro">Thank you for signing up for the <span class="highlight">Catchers Clinic</span>. We're excited to work with you behind the plate.</p>
+
+            <div class="next-steps">
+                <h2>What Happens Next</h2>
+                <ul>
+                    <li>You'll receive a confirmation email shortly</li>
+                    <li>Coach Christina will follow up with payment details and anything athletes should bring</li>
+                    <li>Early bird pricing is $65/player before July 1 and $75/player after July 1</li>
+                    <li>The clinic is Saturday, August 22 from 1:00 PM to 3:00 PM</li>
+                    <li>Keep an eye on your inbox for updates and final details</li>
+                </ul>
+            </div>
+
+            <a href="catchers.html" class="btn">Back to Catchers Clinic</a>
+
+            <p class="contact-note">
+                Questions? Email Coach Christina at <a href="mailto:gabriele_c@mitchell.edu">gabriele_c@mitchell.edu</a>
+            </p>
+        </section>
+    </main>
+</body>
+</html>
