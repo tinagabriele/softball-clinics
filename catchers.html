@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catchers Clinic | Christina Gabriele</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #f5f5f5;
+            background: #0f0f10;
+        }
+
+        header {
+            background: linear-gradient(135deg, #111 0%, #2a2a2c 58%, #a4161a 100%);
+            padding: 54px 20px;
+            text-align: center;
+            border-bottom: 4px solid #d90429;
+        }
+
+        header h1 {
+            font-size: 2.7em;
+            margin-bottom: 10px;
+            letter-spacing: 0.02em;
+        }
+
+        header p {
+            color: #ddd;
+            font-size: 1.15em;
+            margin-bottom: 18px;
+        }
+
+        .registration-pill {
+            display: inline-block;
+            color: white;
+            background: #d90429;
+            text-decoration: none;
+            font-weight: bold;
+            border: 1px solid rgba(255,255,255,0.22);
+            border-radius: 999px;
+            padding: 10px 18px;
+            box-shadow: 0 10px 24px rgba(217,4,41,0.28);
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .registration-pill:hover {
+            background: #ff3347;
+            transform: translateY(-2px);
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 46px 20px;
+        }
+
+        .clinic-hero {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) 360px;
+            gap: 28px;
+            align-items: stretch;
+            margin-bottom: 34px;
+        }
+
+        .intro-panel,
+        .details-card,
+        .registration-card {
+            background: #18181a;
+            border: 1px solid #333;
+            border-radius: 8px;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.25);
+        }
+
+        .intro-panel {
+            padding: 34px;
+            border-left: 6px solid #d90429;
+        }
+
+        .eyebrow {
+            color: #ff3347;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 0.85em;
+            letter-spacing: 0.08em;
+            margin-bottom: 10px;
+        }
+
+        .intro-panel h2 {
+            color: white;
+            font-size: 2.25em;
+            line-height: 1.12;
+            margin-bottom: 16px;
+        }
+
+        .intro-panel p {
+            color: #d9d9d9;
+            font-size: 1.06em;
+            margin-bottom: 16px;
+        }
+
+        .details-card {
+            padding: 26px;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        .details-card h3 {
+            color: #a4161a;
+            font-size: 1.4em;
+            margin-bottom: 16px;
+        }
+
+        .detail-row {
+            border-top: 1px solid #ddd;
+            padding: 12px 0;
+        }
+
+        .detail-row:first-of-type {
+            border-top: none;
+        }
+
+        .detail-row strong {
+            display: block;
+            color: #111;
+            margin-bottom: 3px;
+        }
+
+        .price-note {
+            background: #111;
+            color: white;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 16px;
+            border-left: 5px solid #d90429;
+        }
+
+        .price-note strong {
+            color: #ff3347;
+        }
+
+        .coaches-section {
+            display: grid;
+            grid-template-columns: repeat(2, minmax(0, 1fr));
+            gap: 24px;
+            margin: 30px 0 36px;
+        }
+
+        .section-title {
+            grid-column: 1 / -1;
+            text-align: center;
+            color: white;
+            font-size: 2em;
+            line-height: 1.15;
+            margin-bottom: 2px;
+        }
+
+        .coach-card {
+            background: #18181a;
+            border: 1px solid #333;
+            border-top: 5px solid #d90429;
+            border-radius: 8px;
+            padding: 26px;
+            text-align: center;
+        }
+
+        .coach-photo {
+            width: 168px;
+            height: 168px;
+            margin: 0 auto 18px;
+            border-radius: 50%;
+            border: 3px solid #d90429;
+            object-fit: cover;
+            background: #2a2a2c;
+        }
+
+        .coach-placeholder {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 3.2em;
+            font-weight: bold;
+        }
+
+        .coach-card h3 {
+            color: white;
+            margin-bottom: 8px;
+            font-size: 1.35em;
+        }
+
+        .coach-role {
+            color: #ff3347;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+
+        .coach-card p {
+            color: #cfcfcf;
+            font-size: 0.96em;
+        }
+
+        .registration-card {
+            padding: 34px;
+            background: #f5f5f5;
+            color: #222;
+        }
+
+        .registration-card h2 {
+            color: #a4161a;
+            font-size: 1.8em;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+
+        .registration-card .form-intro {
+            color: #555;
+            text-align: center;
+            max-width: 680px;
+            margin: 0 auto 28px;
+        }
+
+        .form-section {
+            border-top: 1px solid #ddd;
+            padding-top: 24px;
+            margin-top: 24px;
+        }
+
+        .form-section h3 {
+            color: #111;
+            margin-bottom: 16px;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 18px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        label {
+            display: block;
+            color: #222;
+            font-weight: bold;
+            margin-bottom: 6px;
+            font-size: 0.95em;
+        }
+
+        .required {
+            color: #d90429;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 12px 14px;
+            border: 2px solid #d7d7d7;
+            border-radius: 6px;
+            font: inherit;
+            background: white;
+            color: #222;
+        }
+
+        input:focus,
+        select:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #d90429;
+        }
+
+        textarea {
+            min-height: 110px;
+            resize: vertical;
+        }
+
+        .clinic-summary {
+            background: #111;
+            color: white;
+            border-radius: 8px;
+            padding: 18px 20px;
+            margin-bottom: 18px;
+        }
+
+        .clinic-summary strong {
+            color: #ff3347;
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            background: #d90429;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            padding: 15px 28px;
+            font-size: 1.12em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .submit-btn:hover {
+            background: #a4161a;
+            transform: translateY(-2px);
+        }
+
+        .submit-btn:disabled {
+            opacity: 0.65;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .form-message {
+            display: none;
+            margin-top: 18px;
+            padding: 16px;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .form-message.error {
+            display: block;
+            background: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        footer {
+            background: #111;
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 40px;
+            border-top: 1px solid #333;
+        }
+
+        .footer-links {
+            margin: 18px 0;
+        }
+
+        .footer-links a {
+            color: #ff3347;
+            text-decoration: none;
+            margin: 0 14px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 38px 16px;
+            }
+
+            header h1 {
+                font-size: 2em;
+                line-height: 1.12;
+            }
+
+            .container {
+                padding: 30px 16px;
+            }
+
+            .clinic-hero,
+            .coaches-section,
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+
+            .intro-panel,
+            .registration-card {
+                padding: 24px 18px;
+            }
+
+            .intro-panel h2 {
+                font-size: 1.85em;
+            }
+
+            .footer-links {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 12px;
+            }
+
+            .footer-links a {
+                margin: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Catchers Clinic</h1>
+        <p>Focused catching instruction for athletes ready to work behind the plate.</p>
+        <a class="registration-pill" href="#catchers-registration">Scroll down for registration</a>
+    </header>
+
+    <main class="container">
+        <section class="clinic-hero">
+            <div class="intro-panel">
+                <div class="eyebrow">Catching clinic</div>
+                <h2>Train the details that matter behind the plate.</h2>
+                <p>Catchers impact every pitch, every inning, and every game. This clinic is co-hosted by the Mitchell College Softball and Baseball coaching staffs and is designed for athletes looking to level up their game through focused instruction and personalized coaching.</p>
+                <p>Participants will work through receiving, blocking, transfer and throwing mechanics, communication, game management, and the habits that help catchers lead from behind the plate. Expect plenty of reps, practical feedback, and instruction that translates directly to game situations.</p>
+            </div>
+
+            <aside class="details-card">
+                <h3>Clinic Details</h3>
+                <div class="detail-row">
+                    <strong>Date</strong>
+                    Saturday, August 22, 2026
+                </div>
+                <div class="detail-row">
+                    <strong>Time</strong>
+                    1:00 PM - 3:00 PM
+                </div>
+                <div class="detail-row">
+                    <strong>Location</strong>
+                    Mitchell College Athletic Facilities, New London, CT
+                </div>
+                <div class="detail-row">
+                    <strong>Price</strong>
+                    $65/player early bird before July 1<br>
+                    $75/player after July 1
+                </div>
+                <div class="detail-row">
+                    <strong>Registration</strong>
+                    Complete the form below to reserve interest.
+                </div>
+                <div class="price-note">
+                    <strong>Early bird:</strong> Register before July 1 to receive the $65/player rate.
+                </div>
+            </aside>
+        </section>
+
+        <section class="coaches-section" aria-label="Meet your coaches">
+            <h2 class="section-title">Meet Your Coaches</h2>
+            <div class="coach-card">
+                <img class="coach-photo" src="coach-headshot.jpg" alt="Coach Christina Gabriele">
+                <h3>Coach Christina Gabriele</h3>
+                <div class="coach-role">Mitchell College Softball</div>
+                <p>Christina brings playing and coaching experience to athletes who want focused instruction, clear feedback, and confidence behind the plate.</p>
+            </div>
+            <div class="coach-card">
+                <div class="coach-photo coach-placeholder" aria-hidden="true">K</div>
+                <h3>Coach Kevin</h3>
+                <div class="coach-role">Mitchell College Baseball</div>
+                <p>Headshot and bio coming soon. Kevin will co-host the clinic and help lead catching instruction alongside the Mitchell College coaching staffs.</p>
+            </div>
+        </section>
+
+        <section class="registration-card" id="catchers-registration">
+            <h2>Register for the Catchers Clinic</h2>
+            <p class="form-intro">Fill this out for the August 22 catching clinic. I will follow up with confirmation, payment details, and anything athletes should bring.</p>
+
+            <div class="clinic-summary">
+                <p><strong>Clinic:</strong> Catchers Clinic</p>
+                <p><strong>When:</strong> Saturday, August 22, 2026 • 1:00 PM - 3:00 PM</p>
+                <p><strong>Where:</strong> Mitchell College Athletic Facilities • New London, CT</p>
+                <p><strong>Price:</strong> $65/player before July 1 • $75/player after July 1</p>
+            </div>
+
+            <form id="catchers-registration-form">
+                <div class="form-section">
+                    <h3>Athlete Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>First Name <span class="required">*</span></label>
+                            <input type="text" name="athlete_first_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Last Name <span class="required">*</span></label>
+                            <input type="text" name="athlete_last_name" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Age <span class="required">*</span></label>
+                            <input type="number" name="athlete_age" min="6" max="22" required>
+                        </div>
+                        <div class="form-group">
+                            <label>High School Graduation Year <span class="required">*</span></label>
+                            <select name="graduation_year" required>
+                                <option value="">Select year...</option>
+                                <option value="2026">2026</option>
+                                <option value="2027">2027</option>
+                                <option value="2028">2028</option>
+                                <option value="2029">2029</option>
+                                <option value="2030">2030</option>
+                                <option value="2031">2031</option>
+                                <option value="Other">Other</option>
+                                <option value="Currently in College">Currently in College</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Catching Experience <span class="required">*</span></label>
+                            <select name="experience_level" required>
+                                <option value="">Select level...</option>
+                                <option value="Beginner Catcher">Beginner</option>
+                                <option value="Intermediate Catcher">Intermediate</option>
+                                <option value="Advanced Catcher">Advanced</option>
+                                <option value="Varsity/Elite Catcher">Varsity / Elite</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Current Team / Organization</label>
+                            <input type="text" name="current_team" placeholder="Travel team, school team, or organization">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Parent / Guardian Information</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Parent/Guardian Name <span class="required">*</span></label>
+                            <input type="text" name="parent_name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Relationship to Athlete <span class="required">*</span></label>
+                            <select name="relationship" required>
+                                <option value="">Select...</option>
+                                <option value="Mother">Mother</option>
+                                <option value="Father">Father</option>
+                                <option value="Guardian">Guardian</option>
+                                <option value="Coach">Coach</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Email <span class="required">*</span></label>
+                            <input type="email" name="parent_email" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number <span class="required">*</span></label>
+                            <input type="tel" name="parent_phone" placeholder="(555) 555-5555" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-section">
+                    <h3>Additional Details</h3>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label>Throws <span class="required">*</span></label>
+                            <select name="throwing_hand" required>
+                                <option value="">Select...</option>
+                                <option value="Right-handed thrower">Right-handed</option>
+                                <option value="Left-handed thrower">Left-handed</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Gear</label>
+                            <select name="gear_status">
+                                <option value="">Select...</option>
+                                <option value="Has own catching gear">Has own catching gear</option>
+                                <option value="May need gear">May need gear</option>
+                                <option value="Unsure">Unsure</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label>Anything I should know?</label>
+                        <textarea name="notes" placeholder="Goals, experience, injuries, gear questions, or anything else helpful."></textarea>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="submit-btn">Submit Catchers Clinic Registration</button>
+                <div id="form-message" class="form-message"></div>
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p><strong>Questions?</strong></p>
+        <p>Email Coach Christina: <a href="mailto:gabriele_c@mitchell.edu" style="color: #ff3347;">gabriele_c@mitchell.edu</a></p>
+        <div class="footer-links">
+            <a href="register.html">Pitching Registration</a>
+            <a href="mailto:gabriele_c@mitchell.edu">Contact Me</a>
+            <a href="terms-of-use.html">Terms of Use</a>
+        </div>
+        <p style="font-size: 0.9em; color: #aaa;">&copy; 2026 Christina Gabriele. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzN9pqirNwgF4igR-yEG-7LY1L2oN8wLZTHptfbym1fkbHt3XXok1nBWozmkqGumosq/exec';
+
+        document.getElementById('catchers-registration-form').addEventListener('submit', async function(e) {
+            e.preventDefault();
+
+            const submitBtn = document.getElementById('submit-btn');
+            const messageDiv = document.getElementById('form-message');
+            const formData = new FormData(this);
+            const notes = [
+                formData.get('notes') || '',
+                formData.get('throwing_hand') ? 'Throws: ' + formData.get('throwing_hand') : '',
+                formData.get('gear_status') ? 'Gear: ' + formData.get('gear_status') : ''
+            ].filter(Boolean).join(' | ');
+
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Submitting...';
+            messageDiv.className = 'form-message';
+            messageDiv.style.display = 'none';
+
+            const submission = {
+                action: 'register',
+                registration_type: 'catchers',
+                target_sheet: 'Catchers Clinic',
+                timestamp: new Date().toLocaleString(),
+                athlete_first_name: formData.get('athlete_first_name'),
+                athlete_last_name: formData.get('athlete_last_name'),
+                athlete_age: formData.get('athlete_age'),
+                graduation_year: formData.get('graduation_year'),
+                experience_level: formData.get('experience_level'),
+                current_team: formData.get('current_team') || '',
+                parent_name: formData.get('parent_name'),
+                relationship: formData.get('relationship'),
+                parent_email: formData.get('parent_email'),
+                parent_phone: formData.get('parent_phone'),
+                clinic_name: 'Catchers Clinic',
+                clinic_date: 'August 22, 2026',
+                clinic_time: '1:00 PM to 3:00 PM',
+                price_tier: 'Early bird $65 before July 1; $75 after July 1',
+                sessions_selected: 'Catchers Clinic - August 22, 2026 - 1:00 PM to 3:00 PM',
+                referral_source: 'Catchers page',
+                notes: notes
+            };
+
+            try {
+                await fetch(GOOGLE_SCRIPT_URL, {
+                    method: 'POST',
+                    mode: 'no-cors',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(submission)
+                });
+
+                window.location.href = 'thank-you.html';
+            } catch (error) {
+                messageDiv.innerHTML = '<strong>Something went wrong.</strong><br>Please try again or email me directly at <a href="mailto:gabriele_c@mitchell.edu">gabriele_c@mitchell.edu</a>';
+                messageDiv.className = 'form-message error';
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Submit Catchers Clinic Registration';
+            }
+        });
+    </script>
+</body>
+</html>
