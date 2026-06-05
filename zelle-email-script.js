@@ -51,6 +51,7 @@ function sendZelleEmails() {
   const parentNameCol = findColumn(headers, ['parent/guardian', 'parent_name']);
   const sessionsCol = findColumn(headers, ['clinics interested', 'sessions_selected', 'clinics']);
   const notesCol = findColumn(headers, ['notes']);
+  const pricingCol = findColumn(headers, ['pricing tier', 'pricing', 'price']);
   
   // The "Email Sent" column — we'll use the last column + 1 if it doesn't exist yet
   let emailSentCol = findColumn(headers, ['email sent', 'emailed', 'email_sent']);
@@ -82,12 +83,13 @@ function sendZelleEmails() {
     const parentName = row[parentNameCol] || '';
     const sessions = row[sessionsCol] || '';
     const notes = row[notesCol] || '';
+    const pricingTier = (pricingCol !== -1) ? (row[pricingCol] || '').toString().trim() : '';
     
     // Determine if this is a catchers camp registration
     const isCatchersCamp = notes.toString().includes('CATCHERS CAMP');
     
-    // Calculate amount owed
-    const amount = calculateAmount(sessions, isCatchersCamp);
+    // Calculate amount — use Pricing Tier column if filled, otherwise auto-calculate
+    const amount = parsePricingTier(pricingTier) || calculateAmount(sessions, isCatchersCamp);
     
     // Build and send the email
     const subject = '🥎 Payment Info — ' + athleteFirst + ' ' + athleteLast + ' Registration';
@@ -165,6 +167,8 @@ function buildPaymentEmail(parentName, athleteFirst, athleteLast, sessions, amou
         <div style="text-align: center; margin: 30px 0;">
           <p style="font-weight: bold; margin-bottom: 12px;">Scan to pay via Zelle:</p>
           <img src="cid:zelleQR" alt="Zelle QR Code" style="max-width: 250px; width: 100%; border: 2px solid #eee; border-radius: 8px; padding: 10px;">
+          <p style="margin-top: 12px; font-size: 0.9em; color: #555;"><strong>When sending payment via Zelle, please select "Paying a friend, partner, or family member."</strong> Do not select any of the other options as this may cause delays or issues with your payment.</p>
+          <p style="margin-top: 10px; font-size: 0.85em; color: #888;">${isCatchersCamp || !sessions.toString().toLowerCase().includes('mini-clinic') ? 'Advance payment is required for all clinics.' : 'For mini-clinics/private lessons, cash is also accepted at the session.'}</p>
         </div>
         
         <div style="background: #f0f8ff; border: 1px solid #b8daff; border-radius: 8px; padding: 15px 20px; margin: 20px 0;">
@@ -193,6 +197,27 @@ function buildPaymentEmail(parentName, athleteFirst, athleteLast, sessions, amou
 }
 
 // ============ HELPERS ============
+
+function parsePricingTier(pricingTier) {
+  if (!pricingTier) return null;
+  
+  // If it's just a number like "$75" or "75", use it directly
+  const directMatch = pricingTier.match(/^\$?(\d+)$/);
+  if (directMatch) return parseInt(directMatch[1]);
+  
+  // If it contains "early bird" logic, check the date
+  if (pricingTier.toLowerCase().includes('early bird') || pricingTier.toLowerCase().includes('before july')) {
+    const now = new Date();
+    const july1 = new Date('2026-07-01');
+    return now < july1 ? 65 : 75;
+  }
+  
+  // Try to find any dollar amount
+  const dollarMatch = pricingTier.match(/\$(\d+)/);
+  if (dollarMatch) return parseInt(dollarMatch[1]);
+  
+  return null; // Couldn't parse — fall back to auto-calculate
+}
 
 function calculateAmount(sessions, isCatchersCamp) {
   if (isCatchersCamp) {
