@@ -648,7 +648,7 @@
     </footer>
 
     <script>
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzN9pqirNwgF4igR-yEG-7LY1L2oN8wLZTHptfbym1fkbHt3XXok1nBWozmkqGumosq/exec?source=catchers';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzN9pqirNwgF4igR-yEG-7LY1L2oN8wLZTHptfbym1fkbHt3XXok1nBWozmkqGumosq/exec';
 
         document.getElementById('catchers-registration-form').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -668,8 +668,6 @@
 
             const submission = {
                 action: 'register',
-                registration_type: 'catchers',
-                target_sheet: 'Catchers Clinic',
                 timestamp: new Date().toLocaleString(),
                 athlete_first_name: formData.get('athlete_first_name'),
                 athlete_last_name: formData.get('athlete_last_name'),
@@ -687,7 +685,7 @@
                 price_tier: 'Early bird $65 before July 1; $75 after July 1',
                 sessions_selected: "Mitchell College Catcher's Prospect & Development Camp - August 22, 2026 - 1:00 PM to 3:00 PM",
                 referral_source: 'Catchers page',
-                notes: notes
+                notes: 'CATCHERS CAMP | ' + notes
             };
 
             try {
