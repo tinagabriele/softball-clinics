@@ -154,6 +154,23 @@
             margin-bottom: 3px;
         }
 
+        .map-button {
+            display: inline-block;
+            margin-top: 10px;
+            color: white;
+            background: #d90429;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 6px;
+            padding: 9px 14px;
+            transition: transform 0.2s, background 0.2s;
+        }
+
+        .map-button:hover {
+            background: #a4161a;
+            transform: translateY(-2px);
+        }
+
         .price-note {
             background: #111;
             color: white;
@@ -439,7 +456,7 @@
     <header>
         <img class="header-art" src="assets/catcheroutline.png" alt="" aria-hidden="true">
         <div class="header-content">
-            <h1>Mitchell College Catcher's Prospect & Development Camp</h1>
+            <h1>Catcher's Prospect & Development Camp @ Mitchell College</h1>
             <p>Focused catching instruction for athletes ready to work behind the plate.</p>
             <a class="registration-pill" href="#catchers-registration">Scroll down for registration</a>
         </div>
@@ -467,6 +484,8 @@
                 <div class="detail-row">
                     <strong>Location</strong>
                     Mitchell College Athletic Facilities, New London, CT
+                    <br>
+                    <a class="map-button" href="https://www.google.com/maps/search/?api=1&query=Mitchell%20College%20Athletic%20Facilities%20New%20London%20CT" target="_blank" rel="noopener">Open in Google Maps</a>
                 </div>
                 <div class="detail-row">
                     <strong>Price</strong>
@@ -629,7 +648,7 @@
     </footer>
 
     <script>
-        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzN9pqirNwgF4igR-yEG-7LY1L2oN8wLZTHptfbym1fkbHt3XXok1nBWozmkqGumosq/exec';
+        const GOOGLE_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzN9pqirNwgF4igR-yEG-7LY1L2oN8wLZTHptfbym1fkbHt3XXok1nBWozmkqGumosq/exec?source=catchers';
 
         document.getElementById('catchers-registration-form').addEventListener('submit', async function(e) {
             e.preventDefault();
