@@ -30,7 +30,7 @@ const ZELLE_QR_DRIVE_ID = '1pBB-KmOW-Cd0jrBKB2fEkw1jaxyv24O8';
 
 // Pricing lookup
 const PRICING = {
-  'Riseball Rundown - August 22': 75,
+  'Riseball Development Clinic - August 22': 75,
   'Mini-Clinic': 50,
   "Mitchell College Catcher's Prospect & Development Camp - August 22, 2026 - 1:00 PM to 3:00 PM": 75  // post-July 1 price; change to 65 if before July 1
 };
