@@ -93,7 +93,8 @@
             margin: 0 auto;
         }
 
-        .mini-clinic-banner {
+        .mini-clinic-banner,
+        .clinic-banner {
             display: flex;
             justify-content: space-between;
             align-items: center;
@@ -106,13 +107,20 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.1);
         }
 
-        .mini-clinic-banner h3 {
+        .clinic-banner {
+            border-top-color: #FFD93B;
+            margin-bottom: 34px;
+        }
+
+        .mini-clinic-banner h3,
+        .clinic-banner h3 {
             color: #FF66C4;
             font-size: 1.55em;
             margin-bottom: 8px;
         }
 
-        .mini-clinic-banner p {
+        .mini-clinic-banner p,
+        .clinic-banner p {
             color: #666;
             max-width: 680px;
         }
@@ -447,7 +455,16 @@
                 padding: 24px 18px;
             }
 
-            .mini-clinic-banner h3 {
+            .clinic-banner {
+                flex-direction: column;
+                align-items: stretch;
+                text-align: center;
+                gap: 20px;
+                padding: 24px 18px;
+            }
+
+            .mini-clinic-banner h3,
+            .clinic-banner h3 {
                 font-size: 1.35em;
                 line-height: 1.25;
             }
@@ -550,31 +567,19 @@
             <a href="register.html" class="mini-clinic-btn">Register for a Mini-Clinic →</a>
         </div>
 
-        <div class="clinics-grid">
-            <div class="clinic-card">
-                <div class="clinic-card-header">
-                    <h3>Riseball Development Clinic</h3>
-                </div>
-                <div class="clinic-card-body">
-                    <h4>Master the Game's Toughest Pitch</h4>
-                    <p>This clinic focuses on proper spin, grip, release, and body mechanics to throw a riseball that isn't just high — it breaks.</p>
-                    <div class="clinic-details">
-                        <p><strong>📅 Date:</strong> Saturday, August 22, 2026 • 10:00 AM – 12:00 PM</p>
-                        <p><strong>Skill Level:</strong> Advanced</p>
-                        <p><strong>Focus Areas:</strong> Grip, backspin, arm angle, placement</p>
-                        <p><strong>Duration:</strong> 2 hours</p>
-                        <p><strong>Class Size:</strong> 6 athletes max</p>
-                    </div>
-                    <p><strong>What You'll Learn:</strong></p>
-                    <ul>
-                        <li>Riseball grip and finger position</li>
-                        <li>Creating backspin and rise</li>
-                        <li>Arm angle and release mechanics</li>
-                        <li>Strategic placement and pitch sequencing</li>
-                    </ul>
-                    <span class="price-tag">$75/player</span>
+        <div class="clinic-banner">
+            <div>
+                <h3>Riseball Development Clinic</h3>
+                <p>A focused advanced clinic covering riseball grip, backspin, release, body mechanics, and how to throw a riseball that breaks instead of just missing high.</p>
+                <div class="mini-clinic-details">
+                    <span>August 22</span>
+                    <span>10:00 AM - 12:00 PM</span>
+                    <span>$75/player</span>
+                    <span>Advanced pitchers</span>
+                    <span>6 athletes max</span>
                 </div>
             </div>
+            <a href="register.html" class="mini-clinic-btn">Register for Riseball →</a>
         </div>
 
         <div class="location-info">
