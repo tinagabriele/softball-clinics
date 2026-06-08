@@ -18,9 +18,6 @@ Christina is an accomplished pitcher with over a decade of coaching experience a
 #### 🔥 Fastball Fundamentals
 Build a dominant fastball with proper grip, release mechanics, arm angle, and consistency. Designed for all skill levels.
 
-#### 🌀 Curveball Mastery
-Add movement and deception with expert instruction on curveball grip, spin rate, and sequencing. Intermediate to advanced level.
-
 #### ⬆️ Riseball Revolution
 Master the game's toughest pitch with advanced mechanics instruction. Advanced skill level only.
 
