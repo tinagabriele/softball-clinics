@@ -15,9 +15,6 @@ Christina is an accomplished pitcher with over a decade of coaching experience a
 
 ### Our Clinics
 
-#### 🔥 Fastball Fundamentals
-Build a dominant fastball with proper grip, release mechanics, arm angle, and consistency. Designed for all skill levels.
-
 #### ⬆️ Riseball Revolution
 Master the game's toughest pitch with advanced mechanics instruction. Advanced skill level only.
 
