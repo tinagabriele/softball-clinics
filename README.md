@@ -15,7 +15,7 @@ Christina is an accomplished pitcher with over a decade of coaching experience a
 
 ### Our Clinics
 
-#### Riseball Development Clinic
+#### Riseball Intensive Clinic
 Master the game's toughest pitch with advanced mechanics instruction. Advanced skill level only.
 
 ### Features
