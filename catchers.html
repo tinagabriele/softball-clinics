@@ -22,31 +22,32 @@
             background: linear-gradient(135deg, #111 0%, #2a2a2c 58%, #a4161a 100%);
             position: relative;
             overflow: hidden;
+            display: grid;
+            grid-template-columns: minmax(220px, 300px) minmax(0, 980px);
+            justify-content: center;
+            align-items: center;
+            gap: 38px;
             min-height: 265px;
-            padding: 70px 20px 64px;
+            padding: 48px 24px;
             text-align: center;
             border-bottom: 4px solid #d90429;
         }
 
         .header-art {
-            position: absolute;
-            left: max(32px, calc((100vw - 1180px) / 2));
-            top: 50%;
-            width: min(27vw, 300px);
+            width: 100%;
+            max-width: 300px;
             max-height: 230px;
             object-fit: contain;
-            transform: translateY(-50%);
             opacity: 0.88;
             filter: drop-shadow(0 12px 18px rgba(0,0,0,0.32));
             pointer-events: none;
+            justify-self: end;
         }
 
         .header-content {
             position: relative;
             z-index: 1;
             max-width: 980px;
-            margin-left: max(360px, 34vw);
-            margin-right: max(20px, calc((100vw - 1180px) / 2));
         }
 
         header h1 {
@@ -403,26 +404,24 @@
 
         @media (max-width: 768px) {
             header {
+                grid-template-columns: minmax(92px, 30vw) minmax(0, 1fr);
+                gap: 12px;
                 min-height: 235px;
-                padding: 38px 16px;
+                padding: 34px 16px;
             }
 
             header h1 {
-                font-size: 2em;
+                font-size: 1.7em;
                 line-height: 1.12;
             }
 
             .header-art {
-                left: -18px;
-                width: 48vw;
-                max-height: 190px;
+                max-height: 178px;
                 opacity: 0.7;
             }
 
             .header-content {
                 max-width: none;
-                margin-left: 22%;
-                margin-right: 0;
             }
 
             .container {
