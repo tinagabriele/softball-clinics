@@ -1,336 +1,95 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-        <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRNMHDLDSZ"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-TRNMHDLDSZ');
-    </script>
-    
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Christina Gabriele | CT Softball Pitching Coach</title>
+    <meta name="robots" content="noindex">
+    <title>Coaching Site No Longer Active</title>
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            color-scheme: light;
+            --ink: #1f2933;
+            --muted: #5d6773;
+            --paper: #f7f3eb;
+            --accent: #2f6f63;
+            --line: rgba(31, 41, 51, 0.18);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            font-family: 'Arial', sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background-color: #f9f9f9;
-            -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;
-        }
-        header {
-            background: #FA62C5 url('assets/pitching-header-banner.png') left center / cover no-repeat;
-            color: white;
-            padding: 88px 20px;
-            text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        header h1 {
-            font-size: 2.5em;
-            margin-bottom: 10px;
-            margin-left: 34%;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
-        }
-        header p { font-size: 1.2em; opacity: 0.95; margin-left: 34%; }
-        .header-location {
-            display: inline-block;
-            margin-top: 10px;
-            margin-left: 34%;
-            padding: 8px 18px;
-            border-radius: 999px;
-            background: rgba(51, 51, 51, 0.9);
-            color: white;
-            font-weight: bold;
-            font-size: 1.05em;
-            text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.12);
-        }
-        nav {
-            background-color: #333;
-            padding: 15px 0;
-            text-align: center;
-            position: sticky;
-            top: 0;
-            z-index: 100;
-        }
-        nav a {
-            color: white;
-            text-decoration: none;
-            margin: 0 20px;
-            font-weight: bold;
-            transition: color 0.3s;
-        }
-        nav a.active, nav a:hover { color: #FFD93B; }
-        .menu-toggle { display: none; }
-        .nav-links { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; }
-        .social-banner {
-            background: white;
-            padding: 18px 20px;
-            text-align: center;
-        }
-        .instagram-button {
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-            background: #FF66C4;
-            color: white;
-            padding: 12px 24px;
-            border: 2px solid rgba(255,255,255,0.7);
-            border-radius: 999px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 4px 15px rgba(255, 102, 196, 0.22);
-            transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-        }
-        .instagram-button:hover {
-            transform: translateY(-2px);
-            background: #E84FAF;
-            box-shadow: 0 8px 22px rgba(255, 102, 196, 0.3);
-        }
-        .instagram-button svg {
-            width: 22px;
-            height: 22px;
-            flex-shrink: 0;
-        }
-        .hero {
-            text-align: center;
-            padding: 80px 20px;
-            background: white;
-        }
-        .hero h2 { font-size: 2.5em; color: #333; margin-bottom: 20px;}
-        .hero h2 span { color: #FF66C4; }
-        .hero p { font-size: 1.18em; color: #666; max-width: 650px; margin: 0 auto 35px; }
-        .hero-btn {
-            display: inline-block;
-            background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%);
-            color: white;
-            padding: 18px 50px;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.3em;
-            transition: transform 0.2s, box-shadow 0.2s;
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
-            box-shadow: 0 4px 15px rgba(255, 102, 196, 0.4);
-        }
-        .hero-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(255, 102, 196, 0.4);
-        }
-        .why-section { background: #fff0f7; padding: 60px 20px; }
-        .why-content {
+            margin: 0;
+            min-height: 100vh;
             display: grid;
-            grid-template-columns: minmax(0, 1fr) 420px;
-            align-items: center;
-            gap: 40px;
-            max-width: 1120px;
-            margin: 0 auto;
+            place-items: center;
+            padding: 32px;
+            color: var(--ink);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(47, 111, 99, 0.14), transparent 28rem),
+                linear-gradient(135deg, #f7f3eb 0%, #eef2ee 100%);
         }
-        .why-copy { text-align: center; }
-        .why-copy h2 { color: #FF66C4; font-size: 2em; margin-bottom: 15px; }
-        .why-copy .subtitle { color: #666; font-size: 1.1em; margin-bottom: 32px; }
-        .stats-bar {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 18px; margin: 0 0 28px;
+
+        main {
+            width: min(100%, 760px);
+            padding: clamp(28px, 6vw, 64px);
+            border: 1px solid var(--line);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.74);
+            box-shadow: 0 24px 80px rgba(31, 41, 51, 0.12);
         }
-        .stat-item {
-            text-align: center; background: white; padding: 25px 15px; border-radius: 10px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1); transition: transform 0.2s;
+
+        .kicker {
+            margin: 0 0 16px;
+            color: var(--accent);
+            font-size: 0.84rem;
+            font-weight: 700;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
         }
-        .stat-item:hover { transform: translateY(-5px); }
-        .stat-number { font-size: 2.25em; font-weight: bold; background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; margin-bottom: 5px; }
-        .stat-label { color: #FF66C4; font-size: 0.98em; font-weight: bold; }
-        .why-text { color: #555; font-size: 1.07em; line-height: 1.8; }
-        .why-image {
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 8px 24px rgba(0,0,0,0.12);
-            overflow: hidden;
+
+        h1 {
+            margin: 0;
+            max-width: 12ch;
+            font-size: clamp(2.35rem, 7vw, 5.1rem);
+            line-height: 0.96;
+            letter-spacing: 0;
         }
-        .why-image img {
-            display: block;
+
+        p {
+            max-width: 42rem;
+            margin: 28px 0 0;
+            color: var(--muted);
+            font-size: clamp(1.05rem, 2.2vw, 1.28rem);
+            line-height: 1.65;
+        }
+
+        .divider {
             width: 100%;
-            height: auto;
+            height: 1px;
+            margin: 36px 0 0;
+            background: var(--line);
         }
-        .events-preview { background: white; padding: 60px 20px; }
-        .events-preview h2 { text-align: center; color: #FF66C4; font-size: 2em; margin-bottom: 30px; }
-        .events-preview-card {
-            max-width: 700px; margin: 0 auto; background: #fff0f7; border-left: 7px solid #FF66C4; border-radius: 0 12px 12px 0; padding: 25px 30px;
-            display: flex; justify-content: space-between; align-items: center; transition: transform 0.15s;
-        }
-        .events-preview-card:hover { transform: translateX(5px); }
-        .events-preview-info h3 { color: #333; font-size: 1.2em; margin-bottom: 5px; }
-        .events-preview-info p { color: #666; font-size: 0.97em; }
-        .events-preview-info .highlight-tag {
-            display: inline-block; background: linear-gradient(135deg, #FF66C4 0%, #FFD93B 100%); color: #fff; padding: 3px 10px; border-radius: 12px; font-size: 0.83em; font-weight: bold; margin-top: 8px;
-        }
-        .events-btn {
-            display: inline-block; background: #333; color: #fff; padding: 10px 25px; border-radius: 8px; text-decoration: none;
-            font-weight: bold; font-size: 1em; transition: background 0.3s; white-space: nowrap;
-        }
-        .events-btn:hover { background: #FF66C4; color: #fff; }
-        footer {
-            background-color: #333; color: white; text-align: center; padding: 30px 20px; margin-top: 0;
-        }
-        .footer-links { margin: 20px 0; }
-        .footer-links a { color: #FFD93B; text-decoration: none; margin: 0 15px; transition: color 0.3s;}
-        .footer-links a:hover { color: #FF66C4; }
-        .copyright { border-top: 1px solid #555; padding-top: 20px; margin-top: 20px; font-size: 0.9em; }
-        @media (max-width: 768px) {
-            body { overflow-x: hidden; }
-            header { padding: 58px 16px; background-size: cover; background-position: left center; }
-            header h1 { font-size: clamp(1.45rem, 7vw, 1.8em); line-height: 1.15; max-width: 360px; margin-left: auto; margin-right: auto; }
-            header p { font-size: 1rem; max-width: 340px; margin-left: auto; margin-right: auto; }
-            .header-location { margin-left: auto; margin-right: auto; font-size: 0.95rem; }
-            nav { position: sticky; display: flex; flex-wrap: wrap; justify-content: flex-end; align-items: center; padding: 10px 12px; }
-            .menu-toggle { display: inline-flex; flex-direction: column; justify-content: center; gap: 5px; width: 44px; height: 40px; padding: 0 10px; border: 1px solid rgba(255,255,255,0.3); border-radius: 8px; background: rgba(255,255,255,0.08); cursor: pointer; }
-            .menu-toggle span { display: block; height: 2px; width: 100%; background: white; border-radius: 2px; }
-            .nav-links { display: none; width: 100%; flex-direction: column; gap: 8px; padding-top: 10px; }
-            nav.open .nav-links { display: flex; }
-            nav a { display: block; width: 100%; margin: 0; padding: 10px; border-radius: 8px; background: rgba(255,255,255,0.08); font-size: 0.95rem; line-height: 1.2; }
-            .social-banner { padding: 16px 14px; }
-            .instagram-button { width: 100%; max-width: 340px; justify-content: center; padding: 13px 18px; }
-            .hero { padding: 48px 18px; }
-            .hero h2 { font-size: clamp(1.8rem, 8vw, 2.2rem); line-height: 1.15; }
-            .hero p { font-size: 1.02em; }
-            .hero-btn { width: 100%; max-width: 320px; padding: 15px 22px; font-size: 1.05em; }
-            .why-section, .events-preview { padding: 42px 18px; }
-            .why-content { grid-template-columns: 1fr; gap: 28px; }
-            .why-copy { text-align: center; }
-            .why-copy h2, .events-preview h2 { font-size: 1.7em; line-height: 1.2; }
-            .why-copy .subtitle { margin-bottom: 26px; }
-            .stats-bar { grid-template-columns: repeat(2, 1fr); }
-            .why-image { max-width: 420px; margin: 0 auto; }
-            .stat-item { padding: 20px 12px; }
-            .events-preview-card { flex-direction: column; text-align: center; gap: 15px; }
-            .events-preview-card { padding: 22px 18px; border-left-width: 0; border-top: 6px solid #FF66C4; border-radius: 10px; }
-            .events-btn { width: 100%; max-width: 260px; }
-            .footer-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 12px; }
-            .footer-links a { margin: 0; }
-        }
-        @media (max-width: 480px) {
-            .stats-bar { grid-template-columns: 1fr; }
+
+        .note {
+            margin-top: 24px;
+            font-size: 0.96rem;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Christina Gabriele | CT Softball Pitching Coach</h1>
-        <p>Personalized pitching instruction</p>
-        <span class="header-location">📍 Southeastern CT</span>
-    </header>
-    <nav>
-        <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false" onclick="toggleMenu(this)">
-            <span></span>
-            <span></span>
-            <span></span>
-        </button>
-        <div class="nav-links">
-            <a href="index.html" class="active">Home</a>
-            <a href="coach.html">Meet Your Coach</a>
-            <a href="clinics.html">My Clinics</a>
-            <a href="events.html">Events</a>
-            <a href="register.html">Register</a>
-            <a href="calendar.html">Calendar</a>
-            <a href="catchers.html" style="color: #ff3347;">Catchers</a>
-        </div>
-    </nav>
-    <div class="social-banner">
-        <a class="instagram-button" href="https://www.instagram.com/coachchristinagabriele/" target="_blank" rel="noopener" aria-label="Follow Coach Christina on Instagram">
-            <svg viewBox="0 0 24 24" aria-hidden="true">
-                <rect x="3" y="3" width="18" height="18" rx="5" fill="none" stroke="currentColor" stroke-width="2"></rect>
-                <circle cx="12" cy="12" r="4" fill="none" stroke="currentColor" stroke-width="2"></circle>
-                <circle cx="17.5" cy="6.5" r="1.3" fill="currentColor"></circle>
-            </svg>
-            Follow me on Instagram @coachchristinagabriele
-        </a>
-    </div>
-    <section class="hero" id="home">
-        <h2>Take Your Pitching to the <span>Next Level</span></h2>
-        <p>Elite pitching instruction from someone who's been in the circle at every level — 3x high school state champ, D1 starter, college coach.</p>
-        <a href="register.html" class="hero-btn">Register for a Clinic →</a>
-    </section>
-    <section class="why-section">
-        <div class="why-content">
-            <div class="why-copy">
-                <h2>Why Train With Me</h2>
-                <p class="subtitle">From Florida to Virginia to Connecticut, I've worked with athletes of all ages and skill levels, from early development to competitive play.</p>
-                <div class="stats-bar">
-                    <div class="stat-item">
-                        <div class="stat-number">10+</div>
-                        <div class="stat-label">Years Coaching</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">3x</div>
-                        <div class="stat-label">State Champion</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">400+</div>
-                        <div class="stat-label">Confirmed Career Strikeouts</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-number">D1</div>
-                        <div class="stat-label">Full Scholarship</div>
-                    </div>
-                </div>
-                <p class="why-text">My coaching is built on clear instruction, strong mechanics, and honest feedback. I want athletes to understand what they are doing, why it works, and how to make adjustments with confidence.</p>
-            </div>
-            <div class="why-image">
-                <img src="assets/miami-herald-gabriele.png" alt="Miami Herald article featuring Christina Gabriele sending Gulliver to the final four">
-            </div>
-        </div>
-    </section>
-    <section style="background: white; padding: 60px 20px;">
-        <div style="max-width: 800px; margin: 0 auto;">
-            <h2 style="text-align: center; color: #FF66C4; font-size: 2em; margin-bottom: 30px;">What Makes Me Different</h2>
-            <p style="color: #555; font-size: 1.1em; line-height: 1.9; margin-bottom: 20px;">A lot of pitching coaches will teach you how to throw a pitch. I teach you how to have a <strong>career</strong>. The goal is building healthy, resilient, coachable athletes who succeed on the field — and in life.</p>
-            <p style="color: #555; font-size: 1.05em; line-height: 1.9; margin-bottom: 20px;">I coach the <strong>whole athlete</strong> — mechanics, injury prevention, and the habits that keep you competing at your best for seasons to come. I will help you unlock your best, and enjoy the work it takes to get there.</p>
-            <p style="color: #555; font-size: 1.05em; line-height: 1.9;">I learned this firsthand. Debilitating back injuries in high school changed the way I think about training, and that perspective informs every lesson I teach.</p>
-        </div>
-    </section>
-    <section class="events-preview">
-        <h2>Find Me This Summer 🌞</h2>
-        <div class="events-preview-card">
-            <div class="events-preview-info">
-                <h3>🏆 New England's Finest Summer Showcase</h3>
-                <p>July 31 – August 2, 2026 • Plainville, MA</p>
-                <span class="highlight-tag">⭐ Coaching the All-Star Game</span>
-            </div>
-            <a href="events.html" class="events-btn">See All Events →</a>
-        </div>
-    </section>
-    <footer>
-        <p><strong>Ready to Perfect Your Pitch?</strong></p>
-        <p>Contact Coach Christina: <a href="mailto:gabriele_c@mitchell.edu" style="color: #FFD93B;">gabriele_c@mitchell.edu</a></p>
-        <div class="footer-links">
-            <a href="register.html">Register Now</a>
-            <a href="mailto:gabriele_c@mitchell.edu">Contact Me</a>
-            <a href="https://www.instagram.com/coachchristinagabriele/" target="_blank" rel="noopener">Instagram</a>
-            <a href="terms-of-use.html">Terms of Use</a>
-            <a href="catchers.html" style="color: #ff3347;">Catchers</a>
-        </div>
-        <div class="copyright">
-            <p>&copy; 2026 Christina Gabriele. All rights reserved.</p>
-            <p>CT Softball Pitching Coach — Clinics, mini-clinics, and elite-level instruction</p>
-            <p style="font-size: 0.8em; margin-top: 10px;">Images and content are protected intellectual property. Unauthorized reproduction or distribution is prohibited.</p>
-        </div>
-    </footer>
-    <script>
-        function toggleMenu(button) {
-            const nav = button.closest('nav');
-            const isOpen = nav.classList.toggle('open');
-            button.setAttribute('aria-expanded', isOpen);
-        }
-
-        document.addEventListener('contextmenu', (e) => { e.preventDefault(); return false; });
-        document.addEventListener('selectstart', (e) => { e.preventDefault(); return false; });
-        document.addEventListener('dragstart', (e) => { e.preventDefault(); return false; });
-    </script>
+    <main aria-labelledby="page-title">
+        <p class="kicker">Coaching Update</p>
+        <h1 id="page-title">This site is no longer active.</h1>
+        <p>
+            Coaching clinic registration and related pages have been closed. This website is no longer accepting registrations, scheduling clinics, or managing participant information.
+        </p>
+        <div class="divider" aria-hidden="true"></div>
+        <p class="note">
+            Thank you for your interest and support.
+        </p>
+    </main>
 </body>
 </html>
